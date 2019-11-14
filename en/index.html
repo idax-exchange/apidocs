@@ -1,0 +1,4803 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="../images/favicon.ico" rel="icon" type="image/ico" />
+    <title>IDAX API Dodumentation</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../javascripts/all.js"></script>
+    
+  </head>
+
+  <body class="en en_index" data-languages="[&quot;java&quot;,&quot;go&quot;,&quot;c++&quot;,&quot;python&quot;]">
+    
+    <div class="navbar-container">      
+      <nav class="navbar">
+        <a class="logo-container" href="https://idax.global">
+        <img src="//static.idaxstatic.com/pcimg/home/logoWhite20190228.svg" alt>
+        </a>              
+          <a href="/">
+            <button class="lang-picker">
+            简体中文
+            </button>
+          </a>
+          中文
+            
+     
+      </nav>
+    </div>  
+    
+    <a href="#" id="nav-button">
+      <span>        
+        <img src="../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>    
+    <div class="toc-wrapper">
+        <div class="lang-selector">
+              <a href="#" data-language-name="java">Java</a>
+              <a href="#" data-language-name="go">Go</a>
+              <a href="#" data-language-name="c++">C++</a>
+              <a href="#" data-language-name="python">Python</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#c8d79beaef" class="toc-h1 toc-link" data-title="API Overview">API Overview</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#0afca206d7" class="toc-h2 toc-link" data-title="Matching engine">Matching engine</a>
+                        <ul class="toc-list-h3">
+                            <li>
+                              <a href="#7e303dbcc2" class="toc-h3 toc-link" data-title="Trading pair">Trading pair</a>
+                            </li>
+                            <li>
+                              <a href="#82c659cb31" class="toc-h3 toc-link" data-title="Order side">Order side</a>
+                            </li>
+                            <li>
+                              <a href="#0bfde0ebd8" class="toc-h3 toc-link" data-title="Order type（orderType : limit; market）">Order type（orderType : limit; market）</a>
+                            </li>
+                            <li>
+                              <a href="#83636d25e6" class="toc-h3 toc-link" data-title="Order mode（OrderMode : Standard:0; stop-loss limit order:10; take-profit limit order:11; trailing stop order:20）">Order mode（OrderMode : Standard:0; stop-loss limit order:10; take-profit limit order:11; trailing stop order:20）</a>
+                            </li>
+                            <li>
+                              <a href="#147488d962" class="toc-h3 toc-link" data-title="Order property（OrderProperty : Standard:0; FAK:1; FOK:2; POST-ONLY:3）：">Order property（OrderProperty : Standard:0; FAK:1; FOK:2; POST-ONLY:3）：</a>
+                            </li>
+                            <li>
+                              <a href="#1bb429c223" class="toc-h3 toc-link" data-title="Rules">Rules</a>
+                            </li>
+                            <li>
+                              <a href="#9df456e21c" class="toc-h3 toc-link" data-title="Order life cycle">Order life cycle</a>
+                            </li>
+                        </ul>
+                  </li>
+                  <li>
+                    <a href="#ed686a70d9" class="toc-h2 toc-link" data-title="Fee">Fee</a>
+                  </li>
+                  <li>
+                    <a href="#77be4f42f6" class="toc-h2 toc-link" data-title="Server">Server</a>
+                  </li>
+                  <li>
+                    <a href="#62a76e6193" class="toc-h2 toc-link" data-title="Request">Request</a>
+                        <ul class="toc-list-h3">
+                            <li>
+                              <a href="#1bc67f18f6" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                            </li>
+                            <li>
+                              <a href="#b178836383" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            </li>
+                        </ul>
+                  </li>
+                  <li>
+                    <a href="#44170f91b4" class="toc-h2 toc-link" data-title="Pagination">Pagination</a>
+                  </li>
+                  <li>
+                    <a href="#e077109737" class="toc-h2 toc-link" data-title="Standard specification">Standard specification</a>
+                  </li>
+                  <li>
+                    <a href="#be9debc50b" class="toc-h2 toc-link" data-title="Interface type">Interface type</a>
+                  </li>
+                  <li>
+                    <a href="#f4557eaf48" class="toc-h2 toc-link" data-title="Rate limits">Rate limits</a>
+                  </li>
+                  <li>
+                    <a href="#5922e58c31" class="toc-h2 toc-link" data-title="Signature validation">Signature validation</a>
+                  </li>
+                  <li>
+                    <a href="#9303998979" class="toc-h2 toc-link" data-title="Trading pairs">Trading pairs</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#075fb8eb02" class="toc-h1 toc-link" data-title="Token Trading REST API">Token Trading REST API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#4e7568913f" class="toc-h2 toc-link" data-title="Private Interface">Private Interface</a>
+                        <ul class="toc-list-h3">
+                            <li>
+                              <a href="#159a1710d5" class="toc-h3 toc-link" data-title="Get Account Information">Get Account Information</a>
+                            </li>
+                            <li>
+                              <a href="#f4ec365708" class="toc-h3 toc-link" data-title="Placing an order">Placing an order</a>
+                            </li>
+                            <li>
+                              <a href="#b9eaf23923" class="toc-h3 toc-link" data-title="Cancel an order">Cancel an order</a>
+                            </li>
+                            <li>
+                              <a href="#a1b2861038" class="toc-h3 toc-link" data-title="Get order information">Get order information</a>
+                            </li>
+                            <li>
+                              <a href="#d65d8730fd" class="toc-h3 toc-link" data-title="Get Order List">Get Order List</a>
+                            </li>
+                            <li>
+                              <a href="#fa8151cde7" class="toc-h3 toc-link" data-title="Get Order Information in the Latest 24 Hours">Get Order Information in the Latest 24 Hours</a>
+                            </li>
+                            <li>
+                              <a href="#5f30ccda42" class="toc-h3 toc-link" data-title="Get Order Information before the Latest 24 Hours">Get Order Information before the Latest 24 Hours</a>
+                            </li>
+                            <li>
+                              <a href="#1f49656bff" class="toc-h3 toc-link" data-title="Get historical transaction information">Get historical transaction information</a>
+                            </li>
+                            <li>
+                              <a href="#de257462ae" class="toc-h3 toc-link" data-title="Get my historical transaction information">Get my historical transaction information</a>
+                            </li>
+                        </ul>
+                  </li>
+                  <li>
+                    <a href="#170b9f99c2" class="toc-h2 toc-link" data-title="Public Interface">Public Interface</a>
+                        <ul class="toc-list-h3">
+                            <li>
+                              <a href="#899dd936ab" class="toc-h3 toc-link" data-title="Get server timestamp">Get server timestamp</a>
+                            </li>
+                            <li>
+                              <a href="#32c1066fac" class="toc-h3 toc-link" data-title="Signature算法验证">Signature算法验证</a>
+                            </li>
+                            <li>
+                              <a href="#5ed29f9011" class="toc-h3 toc-link" data-title="Get market tickers">Get market tickers</a>
+                            </li>
+                            <li>
+                              <a href="#791b282538" class="toc-h3 toc-link" data-title="Get depth tickers">Get depth tickers</a>
+                            </li>
+                            <li>
+                              <a href="#f664b5f70f" class="toc-h3 toc-link" data-title="Get K-line data">Get K-line data</a>
+                            </li>
+                            <li>
+                              <a href="#aa711b5db9" class="toc-h3 toc-link" data-title="Get the latest deal information">Get the latest deal information</a>
+                            </li>
+                            <li>
+                              <a href="#ea8ab3d4b0" class="toc-h3 toc-link" data-title="Get list of trading pairs">Get list of trading pairs</a>
+                            </li>
+                            <li>
+                              <a href="#668bb38df6" class="toc-h3 toc-link" data-title="Get trading pair configuration">Get trading pair configuration</a>
+                            </li>
+                            <li>
+                              <a href="#610df70ec5" class="toc-h3 toc-link" data-title="Get quote currency valuation">Get quote currency valuation</a>
+                            </li>
+                            <li>
+                              <a href="#2bea290d60" class="toc-h3 toc-link" data-title="Get the Coin/Token list">Get the Coin/Token list</a>
+                            </li>
+                            <li>
+                              <a href="#29e74d727d" class="toc-h3 toc-link" data-title="Get support exchange pair list">Get support exchange pair list</a>
+                            </li>
+                        </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#72d9ea9837" class="toc-h1 toc-link" data-title="WebSocket API">WebSocket API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#82e4ba959d" class="toc-h2 toc-link" data-title="Subscribe to trend data">Subscribe to trend data</a>
+                        <ul class="toc-list-h3">
+                            <li>
+                              <a href="#02b6a89191" class="toc-h3 toc-link" data-title="Request">Request</a>
+                            </li>
+                            <li>
+                              <a href="#aa76a36318" class="toc-h3 toc-link" data-title="Request Parameter">Request Parameter</a>
+                            </li>
+                            <li>
+                              <a href="#4c961faf37" class="toc-h3 toc-link" data-title="Response">Response</a>
+                            </li>
+                        </ul>
+                  </li>
+                  <li>
+                    <a href="#06c491a5ff" class="toc-h2 toc-link" data-title="Subscribe to market depth (return incremental data)">Subscribe to market depth (return incremental data)</a>
+                        <ul class="toc-list-h3">
+                            <li>
+                              <a href="#02b6a89191-2" class="toc-h3 toc-link" data-title="Request">Request</a>
+                            </li>
+                            <li>
+                              <a href="#aa76a36318-2" class="toc-h3 toc-link" data-title="Request Parameter">Request Parameter</a>
+                            </li>
+                            <li>
+                              <a href="#4c961faf37-2" class="toc-h3 toc-link" data-title="Response">Response</a>
+                            </li>
+                        </ul>
+                  </li>
+                  <li>
+                    <a href="#030bb7eacc" class="toc-h2 toc-link" data-title="Subscribe to market depth (pushed once per second)">Subscribe to market depth (pushed once per second)</a>
+                        <ul class="toc-list-h3">
+                            <li>
+                              <a href="#02b6a89191-3" class="toc-h3 toc-link" data-title="Request">Request</a>
+                            </li>
+                            <li>
+                              <a href="#aa76a36318-3" class="toc-h3 toc-link" data-title="Request Parameter">Request Parameter</a>
+                            </li>
+                            <li>
+                              <a href="#4c961faf37-3" class="toc-h3 toc-link" data-title="Response">Response</a>
+                            </li>
+                        </ul>
+                  </li>
+                  <li>
+                    <a href="#862e989c78" class="toc-h2 toc-link" data-title="Subscribe to deal records">Subscribe to deal records</a>
+                        <ul class="toc-list-h3">
+                            <li>
+                              <a href="#02b6a89191-4" class="toc-h3 toc-link" data-title="Request">Request</a>
+                            </li>
+                            <li>
+                              <a href="#aa76a36318-4" class="toc-h3 toc-link" data-title="Request Parameter">Request Parameter</a>
+                            </li>
+                            <li>
+                              <a href="#4c961faf37-4" class="toc-h3 toc-link" data-title="Response">Response</a>
+                            </li>
+                        </ul>
+                  </li>
+                  <li>
+                    <a href="#d30aa2e71b" class="toc-h2 toc-link" data-title="Subscribe to K-line data">Subscribe to K-line data</a>
+                        <ul class="toc-list-h3">
+                            <li>
+                              <a href="#02b6a89191-5" class="toc-h3 toc-link" data-title="Request">Request</a>
+                            </li>
+                            <li>
+                              <a href="#aa76a36318-5" class="toc-h3 toc-link" data-title="Request Parameter">Request Parameter</a>
+                            </li>
+                            <li>
+                              <a href="#4c961faf37-5" class="toc-h3 toc-link" data-title="Response">Response</a>
+                            </li>
+                        </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#38fc5be34e" class="toc-h1 toc-link" data-title="Perpetual API">Perpetual API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#616805b092" class="toc-h2 toc-link" data-title="Position">Position</a>
+                        <ul class="toc-list-h3">
+                            <li>
+                              <a href="#6665ff8be8" class="toc-h3 toc-link" data-title="Get all positions infomation">Get all positions infomation</a>
+                            </li>
+                            <li>
+                              <a href="#c4b465bd44" class="toc-h3 toc-link" data-title="Get Position Info">Get Position Info</a>
+                            </li>
+                        </ul>
+                  </li>
+                  <li>
+                    <a href="#20671f8826" class="toc-h2 toc-link" data-title="Account">Account</a>
+                        <ul class="toc-list-h3">
+                            <li>
+                              <a href="#71a2ea5019" class="toc-h3 toc-link" data-title="账户资产信息">账户资产信息</a>
+                            </li>
+                            <li>
+                              <a href="#f6210940dc" class="toc-h3 toc-link" data-title="单个币种合约账户信息">单个币种合约账户信息</a>
+                            </li>
+                            <li>
+                              <a href="#f2d4c283d1" class="toc-h3 toc-link" data-title="获取某个合约的用户配置">获取某个合约的用户配置</a>
+                            </li>
+                            <li>
+                              <a href="#37e819b7ba" class="toc-h3 toc-link" data-title="设定某个合约的杠杆">设定某个合约的杠杆</a>
+                            </li>
+                            <li>
+                              <a href="#a248081af7" class="toc-h3 toc-link" data-title="账户资产流水查询">账户资产流水查询</a>
+                            </li>
+                        </ul>
+                  </li>
+                  <li>
+                    <a href="#ad9e6284f0" class="toc-h2 toc-link" data-title="订单">订单</a>
+                        <ul class="toc-list-h3">
+                            <li>
+                              <a href="#0c922f87c9" class="toc-h3 toc-link" data-title="下单">下单</a>
+                            </li>
+                            <li>
+                              <a href="#76089293dd" class="toc-h3 toc-link" data-title="批量下单">批量下单</a>
+                            </li>
+                            <li>
+                              <a href="#8ca58e3150" class="toc-h3 toc-link" data-title="撤单">撤单</a>
+                            </li>
+                            <li>
+                              <a href="#ef5aaabaf8" class="toc-h3 toc-link" data-title="批量撤单">批量撤单</a>
+                            </li>
+                            <li>
+                              <a href="#6b5072a2f9" class="toc-h3 toc-link" data-title="获取所有订单列表">获取所有订单列表</a>
+                            </li>
+                            <li>
+                              <a href="#9feac9a097" class="toc-h3 toc-link" data-title="获取订单信息">获取订单信息</a>
+                            </li>
+                        </ul>
+                  </li>
+                  <li>
+                    <a href="#7669de4e81" class="toc-h2 toc-link" data-title="交易">交易</a>
+                        <ul class="toc-list-h3">
+                            <li>
+                              <a href="#31e022f000" class="toc-h3 toc-link" data-title="获取成交明细">获取成交明细</a>
+                            </li>
+                            <li>
+                              <a href="#071be79be8" class="toc-h3 toc-link" data-title="获取委托单列表">获取委托单列表</a>
+                            </li>
+                            <li>
+                              <a href="#cd0ff6a5d6" class="toc-h3 toc-link" data-title="获取历史委托单列表">获取历史委托单列表</a>
+                            </li>
+                            <li>
+                              <a href="#9ebc0ab78d" class="toc-h3 toc-link" data-title="获取历史平仓列表">获取历史平仓列表</a>
+                            </li>
+                            <li>
+                              <a href="#665addac18" class="toc-h3 toc-link" data-title="获取历史成交列表">获取历史成交列表</a>
+                            </li>
+                            <li>
+                              <a href="#07b45d8691" class="toc-h3 toc-link" data-title="链类型列表">链类型列表</a>
+                            </li>
+                            <li>
+                              <a href="#9ac80bc554" class="toc-h3 toc-link" data-title="获取深度数据">获取深度数据</a>
+                            </li>
+                        </ul>
+                  </li>
+                  <li>
+                    <a href="#7cd7cf771f" class="toc-h2 toc-link" data-title="Market Info">Market Info</a>
+                        <ul class="toc-list-h3">
+                            <li>
+                              <a href="#09aac6e14b" class="toc-h3 toc-link" data-title="获取行情数据">获取行情数据</a>
+                            </li>
+                            <li>
+                              <a href="#81f530eaa3" class="toc-h3 toc-link" data-title="获取K线数据">获取K线数据</a>
+                            </li>
+                        </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#478392e706" class="toc-h1 toc-link" data-title="REST API error code">REST API error code</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#41f8915de8" class="toc-h2 toc-link" data-title="Coin to Coin API error code">Coin to Coin API error code</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#eb9587312c" class="toc-h1 toc-link" data-title="REST API FAQs">REST API FAQs</a>
+          </li>
+          <li>
+            <a href="#7166afcc5a" class="toc-h1 toc-link" data-title="WebSocket API FAQs">WebSocket API FAQs</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#4116190aff" class="toc-h2 toc-link" data-title="How to check the connection status?">How to check the connection status?</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#731bbbbe4f" class="toc-h1 toc-link" data-title="Change Log">Change Log</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#ca0f53a5da" class="toc-h2 toc-link" data-title="2019-10-25">2019-10-25</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            
+          <li class="toc-footer-end"> 
+            <a href='https://idax.global'>
+              Go back to home page
+            </a>
+          </li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='c8d79beaef'>API Overview</h1>
+<p>It provides users with a set of simple and powerful development tools, designed to help users quickly and efficiently integrate IDAX tickers and transaction functions into their own applications. IDAX interface is the basis for providing services. After creating accounts on the IDAX website, developers can establish APIs with different authority based on their own needs, and use APIs to conduct automatic transactions. The following functions can be realized quickly through APIs: Once obtaining access to the interface, you can help with the development by reading the interface documentation. If you have any problems in the process of using, please contact us and we will give you a feedback as soon as possible.</p>
+<h2 id='0afca206d7'>Matching engine</h2><h3 id='7e303dbcc2'>Trading pair</h3>
+<p>Expression: <code>XXX_YYY</code>，where <code>XXX</code> is the base currency while <code>YYY</code> is the quote currency.</p>
+
+<p>For example: In the <code>ETH_BTC</code> pair, <code>ETH</code> is the base currency while <code>BTC</code> is the quote currency.</p>
+<h3 id='82c659cb31'>Order side</h3>
+<ul>
+<li>Buy</li>
+<li>Sell</li>
+</ul>
+<h3 id='0bfde0ebd8'>Order type（orderType : limit; market）</h3>
+<ul>
+<li><p>A limit order refers to an order where the buy and sell prices are limited, that is, the maximum price is set when buying the base currency and the minimum price is set when selling the base currency. In addition to the price limit, a limit order transaction must also limit the quantity of the transaction base currency.</p></li>
+<li><p>A market order refers to an order where the buy or sell prices are not limited, that is, to buy or sell at the current market price, wherein the buy market order must limit the amount of the quote currency to buy; sell market order must limit the amount of the base currency to sell.</p></li>
+</ul>
+<h3 id='83636d25e6'>Order mode（OrderMode : Standard:0; stop-loss limit order:10; take-profit limit order:11; trailing stop order:20）</h3>
+<ul>
+<li><p>Standard：Default order mode.</p></li>
+<li><p>A stop-loss limit order is an order that sells or closes positions at a set price after the market has reached a specified price which is used to control losses.</p></li>
+<li><p>Similar to a stop-loss limit order, a take-profit limit order is an order that sells or closes positions at a set price after the market has reached a specified price which is used to control profits.</p></li>
+<li><p>A trailing stop order is similar to stop market order, where you need to specify the trailing value differential to the trigger price, and if triggered then a market order will be placed.</p></li>
+</ul>
+
+<p>Note: a positive Trail value indicates a trailing buy whilst a negative trail value indicates a trailing sell.</p>
+<h3 id='147488d962'>Order property（OrderProperty : Standard:0; FAK:1; FOK:2; POST-ONLY:3）：</h3>
+<ul>
+<li><p>Standard : Default order property</p></li>
+<li><p>FAK (Fill and Kill) - FAK orders are immediately executed against resting orders. Any quantity that remains unfilled is canceled.</p></li>
+</ul>
+
+<p>Please note that only limit order, stop-loss limit order and take-profit limit order are supported.</p>
+
+<ul>
+<li>FOK (Fill or Kill) - FOK order is an order to buy or sell an instrument that must be executed immediately in its entirety; otherwise, the entire order is canceled; no partial fulfillments are allowed.</li>
+</ul>
+
+<p>Please note that only limit order, stop-loss limit order and take-profit limit order are supported.</p>
+
+<ul>
+<li>POST-ONLY: The post-only limit order option ensures the limit order will be added to the order book and not match with a pre-existing order. If your order would cause a match with a pre-existing order, your post-only limit order will be canceled.</li>
+</ul>
+
+<p>Please note that only limit order, stop-loss limit order and take-profit limit order are supported.</p>
+<h3 id='1bb429c223'>Rules</h3>
+<ul>
+<li><p>Matching rule: The matching rule of the IDAX matching engine: Priority for orders based on price and time. In specific, to match according to the priority of price over time, and to match according to the order placement time when the prices are the same, and the orders placed first will be matched first.</p></li>
+<li><p>Execution Price rule: When the orders are matched, the transaction prices will be based on the maker price instead of the taker price.</p></li>
+</ul>
+<h3 id='9df456e21c'>Order life cycle</h3>
+<ol>
+<li><p>When an order first presents on the matching engine, it is in the status of &quot;unfilled&quot;.</p></li>
+<li><p>If an order is filled partially, it will come into the canceled of &quot;partially filled&quot;, and the remaining order will stay in the queue waiting to be matched.</p></li>
+<li><p>If an order is completely filled, it will come into the status of &quot;filled&quot;.</p></li>
+<li><p>If an order, in the queue waiting to be matched, is canceled, it will come into the status of &quot;canceled&quot; and its previous order status may be &quot;partially filled&quot;.</p></li>
+</ol>
+
+<p>Orders that are canceled or completely filled will be removed from the matching queue.</p>
+<h2 id='ed686a70d9'>Fee</h2>
+<p>Fee Schedule：<code>https://www.idax.pro/fee</code></p>
+<h2 id='77be4f42f6'>Server</h2>
+<p>In order to minimize API access latency, it is recommended that you use the server in Hong Kong.</p>
+<h2 id='62a76e6193'>Request</h2><h3 id='1bc67f18f6'>REST API</h3>
+<p>Root URL of REST access <code>http://openapi.idax.pro/api/v2</code></p>
+
+<p>All requests are based on the HTTPS protocols, and the content type in the request header must be uniformly set as: <code>&#39;Application/JSON&#39;</code>.</p>
+
+<p>Note to request interaction (Return values of REST API service all contain “code” and “msg”)：</p>
+
+<ol>
+<li><p>Request parameter encapsulation: Parameters are encapsulated based on the requirements of interface request parameters.</p></li>
+<li><p>Request parameters submission: The encapsulated request parameters are submitted to the server by POST or GET methods.</p></li>
+<li><p>Server response: The server will validate the request and return the response data in JSON format to the user according to the business logic.</p></li>
+<li><p>Response data processing: Users may process the server response data on demand.</p></li>
+</ol>
+<h3 id='b178836383'>WebSocket API</h3><h4 id='0e4030f4bc'>Link address</h4>
+<p><code>wss://openws.idax.pro/ws</code></p>
+<h4 id='5b45a1e066'>Request data format</h4><pre class="highlight plaintext"><code>{
+    'event':'addChannel',
+    'channel':'channelValue',
+    'parameters':
+    {
+        'apiKey':'value1',
+        'timestamp':'value2',
+        'sign':'value3'
+    }
+}
+</code></pre>
+<ul>
+<li>event: addChannel (register request data)/removeChannel (cancel request data)/clearChannel(cancel all requests)</li>
+<li>Channel: IDAX provides the request data type.</li>
+<li>Parameters are optional, reserved for transaction services, wherein the ‘apiKey’ is the apiKey applied for by the user. The ‘sign’ is the signature character strings, and please refer to the request note for the signature rules.</li>
+</ul>
+<h4 id='f302055011'>Single registration</h4>
+<p><code>websocket.send(&quot;{&#39;event&#39;:&#39;addChannel&#39;,&#39;channel&#39;:&#39;idax_sub_eth_btc_ticker&#39;}&quot;)</code></p>
+<h4 id='a6cf5586cb'>Batch registration</h4>
+<p><code>websocket.send(&quot;[ {&#39;event&#39;:&#39;addChannel&#39;,&#39;channel&#39;:&#39;idax_sub_eth_btc_ticker&#39;}, {&#39;event&#39;:&#39;addChannel&#39;,&#39;channel&#39;:&#39;idax_sub_eth_btc_depth&#39;}, {&#39;event&#39;:&#39;addChannel&#39;,&#39;channel&#39;:&#39;idax_sub_eth_btc_trades&#39;} ]&quot;);</code></p>
+<h4 id='afd112d8ab'>Server response</h4>
+<p>The format of the return data is:</p>
+
+<p><code>[{&quot;channel&quot;:&quot;channel&quot;,&quot;code&quot;:&quot;&quot;,&quot;data&quot;:[{}]}, {&quot;channel&quot;:&quot;channel&quot;,&quot;code&quot;:&quot;&quot;,&quot;data&quot;:[{}]}]</code></p>
+
+<ul>
+<li>channel: request data type</li>
+<li>code: &quot;00000&quot;: Registration/cancellation succeeds. Other registration/cancellation fails.</li>
+<li>Data: return result data</li>
+</ul>
+<h4 id='ed070f7582'>Note to the WebSocket subscriptions process</h4>
+<ul>
+<li>In order to ensure the timeliness of the push process and to reduce data amount, we just push ticker data (market data）and order book depth data（marekt depth）whenever the market data changes, and incremental Order Execution data（trades）. Transaction records（trades）are the incremental data generated by the last push to the current one.</li>
+<li>When each subscription is successful, the current data will be pushed once and the ‘code’ will indicate whether the subscription was successful or not.</li>
+<li>When each unsubscription is successful, the server also pushes a message with the code of success.</li>
+<li>IDAX will push the full order book data per second with idax_sub_X_depth_Y.</li>
+</ul>
+<h2 id='44170f91b4'>Pagination</h2>
+<p>Some APIs provide a pagination query. All API calls with the following request parameter name support pagination queries. Please see the following:</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pageIndex</td>
+<td>Current page</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>The maximum number of strings on each page is 100</td>
+</tr>
+</tbody></table>
+<h2 id='e077109737'>Standard specification</h2>
+<ul>
+<li><p>Timestamp
+Unless otherwise specified, all timestamps in the API are returned in milliseconds.</p></li>
+<li><p>Data Accuracy
+In order to maintain the data integrity and precision across platforms, decimal data are returned as character strings. It is recommended that you also convert numbers to character strings when making requests to avoid truncation and precision errors.</p></li>
+</ul>
+<h2 id='be9debc50b'>Interface type</h2>
+<ul>
+<li>Public interfaces</li>
+</ul>
+
+<p>Public interfaces can be used to get configuration information and ticker data. Public requests can be invoked without authentication.</p>
+
+<ul>
+<li>Private interfaces</li>
+</ul>
+
+<p>Private interfaces can be used for order management and account management. Each private request must be validated with a signature generated by your private key.
+You can generate an API key here: Account Settings -&gt;My API -&gt; Create API keys; </p>
+
+<p>Link Address: <code>https://www.idax.pro/myapi</code>.</p>
+<h2 id='f4557eaf48'>Rate limits</h2>
+<p>API call rate limits
+* API call rate limit &lt;= 5 times/ sec from the same IP;
+* API call rate limit &lt;= 5 times/sec from the same key</p>
+<h2 id='5922e58c31'>Signature validation</h2>
+<p>How to get the request signature?</p>
+
+<p>All parameters submitted by the user, except the ‘sign’parameter, will be signed to get the signature. All parameter names are named in the camel case and the first letter of the parameter names are in lowercase. The parameter names to be signed are sorted alphabetically (by comparing the first letters of all parameter names alphabetically or the second letter if the first letters are the same, and the like).</p>
+
+<p>For instance, you want to place an order, the serialized string is: </p>
+
+<p><code>amount=1.05&amp;key=123456789&amp;orderSide=buy&amp;orderType=limit&amp;pair=ETH_BTC&amp;price=0.069249&amp; timestamp=1532522823039</code></p>
+
+<p>Finally, the HmacSha256 algorithm is used to get the signature with your private key and the above string. The obtained hexadecimal code is assigned to the request parameter ‘sign’.</p>
+<h2 id='9303998979'>Trading pairs</h2>
+<p>IDAX Public Trading Pairs, We will make changes on an occasional basis</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AE/BTC</td>
+<td>ADN/ETH</td>
+<td>BAW/USDT</td>
+</tr>
+<tr>
+<td>BCHABC/BTC</td>
+<td>AE/ETH</td>
+<td>BK/USDT</td>
+</tr>
+<tr>
+<td>BST/BTC</td>
+<td>DDPC/ETH</td>
+<td>BNB/USDT</td>
+</tr>
+<tr>
+<td>BSV/BTC</td>
+<td>EOS/ETH</td>
+<td>BTC/USDT</td>
+</tr>
+<tr>
+<td>BTS/BTC</td>
+<td>LINKA/ETH</td>
+<td>BTE/USDT</td>
+</tr>
+<tr>
+<td>DASH/BTC</td>
+<td>MACH/ETH</td>
+<td>BTT/USDT</td>
+</tr>
+<tr>
+<td>EOS/BTC</td>
+<td>NULS/ETH</td>
+<td>CSAC/USDT</td>
+</tr>
+<tr>
+<td>ETH/BTC</td>
+<td>OMG/ETH</td>
+<td>CUST/USDT</td>
+</tr>
+<tr>
+<td>FK/BTC</td>
+<td>PKO/ETH</td>
+<td>DFT/USDT</td>
+</tr>
+<tr>
+<td>GNA/BTC</td>
+<td>SNT/ETH</td>
+<td>DOGE/USDT</td>
+</tr>
+<tr>
+<td>GNY/BTC</td>
+<td>STORJ/ETH</td>
+<td>EST/USDT</td>
+</tr>
+<tr>
+<td>IOST/BTC</td>
+<td>TRX/ETH</td>
+<td>ETC/USDT</td>
+</tr>
+<tr>
+<td>KUV/BTC</td>
+<td>UGC/ETH</td>
+<td>ETH/USDT</td>
+</tr>
+<tr>
+<td>LINKA/BTC</td>
+<td>XD/ETH</td>
+<td>FK/USDT</td>
+</tr>
+</tbody></table>
+<h1 id='075fb8eb02'>Token Trading REST API</h1><h2 id='4e7568913f'>Private Interface</h2><h3 id='159a1710d5'>Get Account Information</h3><h4 id='02b6a89191'>Request</h4>
+<p><code>POST https://openapi.idax.pro/api/v2/userinfo</code></p>
+<h4 id='02b6a89191-2'>Request</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>String</td>
+<td>Yes</td>
+<td style="text-align: center">API Key</td>
+</tr>
+<tr>
+<td>sign</td>
+<td>String</td>
+<td>Yes</td>
+<td style="text-align: center">Signature of the request parameter</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>Long</td>
+<td>Yes</td>
+<td style="text-align: center">Request timestamp (effective within 3 minutes)</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"request success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"BTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ETH"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"free"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"BTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ETH"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"freezed"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"BTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ETH"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>total</td>
+<td style="text-align: center">Total assets (ms)</td>
+</tr>
+<tr>
+<td>free</td>
+<td style="text-align: center">Available</td>
+</tr>
+<tr>
+<td>freezed</td>
+<td style="text-align: center">Frozen</td>
+</tr>
+</tbody></table>
+<h3 id='f4ec365708'>Placing an order</h3><h4 id='02b6a89191-3'>Request</h4>
+<p><code>POST https://openapi.idax.pro/api/v2/placeOrder</code></p>
+
+<aside class="notice">
+
+Place an order to trade (except for this API call, all other API calls use quantity to represent “quantity” and amount to represent “amount”.)
+
+</aside>
+<h4 id='02b6a89191-4'>Request</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pair</td>
+<td>String</td>
+<td>Yes</td>
+<td>Trading pairs supported by IDAX</td>
+</tr>
+<tr>
+<td>orderType</td>
+<td>String</td>
+<td>Yes</td>
+<td>limit: limit price, market: market price</td>
+</tr>
+<tr>
+<td>orderSide</td>
+<td>String</td>
+<td>Yes</td>
+<td>buy: bid, sell: ask</td>
+</tr>
+<tr>
+<td>price</td>
+<td>Double</td>
+<td>Yes</td>
+<td>Order price</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>Double</td>
+<td>Yes</td>
+<td>Order quantity</td>
+</tr>
+<tr>
+<td>triggerPrice</td>
+<td>Double</td>
+<td>No</td>
+<td>TriggerPrice(trigger Price must be greater than 0)</td>
+</tr>
+<tr>
+<td>priceGap</td>
+<td>Double</td>
+<td>No</td>
+<td>Price Gap (if It&#39;s trailing stop order, the price gap must be greater than 0).(Limited stop-loss, stop earnings do not support priceGap)</td>
+</tr>
+<tr>
+<td>orderMode</td>
+<td>Integer</td>
+<td>Yes</td>
+<td>Order mode: standard mode:0; stop loss:10; take profit:11; trailing stop:20</td>
+</tr>
+<tr>
+<td>orderProperty</td>
+<td>Integer</td>
+<td>Yes</td>
+<td>OrderProperty : Standard property:0; FAK:1; FOK:2; POST-ONLY:3</td>
+</tr>
+<tr>
+<td>key</td>
+<td>String</td>
+<td>Yes</td>
+<td>API Key</td>
+</tr>
+<tr>
+<td>sign</td>
+<td>String</td>
+<td>Yes</td>
+<td>Signature of the request parameter</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>Long</td>
+<td>Yes</td>
+<td>Request timestamp (effective within 3 minutes)</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37-2'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"request success"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"orderId"</span><span class="p">:</span><span class="s2">"2000000000008832432"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderId</td>
+<td style="text-align: center">Order Id</td>
+</tr>
+</tbody></table>
+<h3 id='b9eaf23923'>Cancel an order</h3><h4 id='02b6a89191-5'>Request</h4>
+<p><code>POST https://openapi.idax.pro/api/v2/cancelOrder</code></p>
+
+<aside class="notice">
+
+Order cancellation (batch cancellation supported)
+
+</aside>
+<h4 id='02b6a89191-6'>Request</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderId</td>
+<td>String</td>
+<td>Yes</td>
+<td>Order ID (multiple order IDs are separated by &quot;,&quot; and it is allowed to cancel up to five orders at a time)</td>
+</tr>
+<tr>
+<td>key</td>
+<td>String</td>
+<td>Yes</td>
+<td>API Key</td>
+</tr>
+<tr>
+<td>sign</td>
+<td>String</td>
+<td>Yes</td>
+<td>Signature of the request parameter</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>Long</td>
+<td>Yes</td>
+<td>Request timestamp (effective within 3 minutes)</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37-3'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"request success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accepted"</span><span class="p">:</span><span class="s2">"123456789"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accepted</td>
+<td style="text-align: center">Order number (the last number of the orders that have accepted the cancellation request)</td>
+</tr>
+</tbody></table>
+<h3 id='a1b2861038'>Get order information</h3><h4 id='02b6a89191-7'>Request</h4>
+<p><code>POST https://openapi.idax.pro/api/v2/orderInfo</code></p>
+<h4 id='02b6a89191-8'>Request</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pair</td>
+<td>String</td>
+<td>Yes</td>
+<td>Trading pairs supported by IDAX</td>
+</tr>
+<tr>
+<td>orderId</td>
+<td>String</td>
+<td>Yes</td>
+<td>Order ID. -1: All unfinished orders; otherwise query the specified orders.</td>
+</tr>
+<tr>
+<td>pageIndex</td>
+<td>int</td>
+<td>No</td>
+<td>Current page number</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>int</td>
+<td>No</td>
+<td>The number of strings on each page.</td>
+</tr>
+<tr>
+<td>key</td>
+<td>String</td>
+<td>Yes</td>
+<td>API Key</td>
+</tr>
+<tr>
+<td>sign</td>
+<td>String</td>
+<td>Yes</td>
+<td>Signature of the request parameter</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>Long</td>
+<td>Yes</td>
+<td>Request timestamp (effective within 3 minutes)</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37-4'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"request success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"avgPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dealQuantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderMode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderProperty"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderSide"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderState"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priceGap"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"triggerPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orders</td>
+<td>Order information</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Order placement quantity</td>
+</tr>
+<tr>
+<td>avgPrice</td>
+<td>Average deal price</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>Order placement time</td>
+</tr>
+<tr>
+<td>dealQuantity</td>
+<td>Deal quantity</td>
+</tr>
+<tr>
+<td>orderId</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td>price</td>
+<td>Order placement price</td>
+</tr>
+<tr>
+<td>orderState</td>
+<td>1: Not filled, 2: partially filled, 9: totally filled, 19: cancelled</td>
+</tr>
+<tr>
+<td>orderSide</td>
+<td>1:buy / 2:sell</td>
+</tr>
+<tr>
+<td>triggerPrice</td>
+<td>Trigger Price</td>
+</tr>
+<tr>
+<td>priceGap</td>
+<td>Price Gap</td>
+</tr>
+<tr>
+<td>orderMode</td>
+<td>Order mode: standard mode:0; stop loss:10; take profit:11; trailing stop:20</td>
+</tr>
+<tr>
+<td>orderProperty</td>
+<td>OrderProperty : Standard property:0; FAK:1; FOK:2; POST-ONLY:3</td>
+</tr>
+<tr>
+<td>total</td>
+<td>Total records</td>
+</tr>
+</tbody></table>
+<h3 id='d65d8730fd'>Get Order List</h3><h4 id='02b6a89191-9'>Request</h4>
+<p><code>POST https://openapi.idax.pro/api/v2/orderList</code></p>
+<h4 id='02b6a89191-10'>Request</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderId</td>
+<td>String</td>
+<td>Yes</td>
+<td>Order ID (Multiple order IDs are separated by)</td>
+</tr>
+<tr>
+<td>pair</td>
+<td>String</td>
+<td>Yes</td>
+<td>Trading pairs supported by IDAX</td>
+</tr>
+<tr>
+<td>pageIndex</td>
+<td>int</td>
+<td>No</td>
+<td>Current page number</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>int</td>
+<td>No</td>
+<td>The number of strings on each page.</td>
+</tr>
+<tr>
+<td>key</td>
+<td>String</td>
+<td>Yes</td>
+<td>API Key</td>
+</tr>
+<tr>
+<td>sign</td>
+<td>String</td>
+<td>Yes</td>
+<td>Signature of the request parameter</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>Long</td>
+<td>Yes</td>
+<td>Request timestamp (effective within 3 minutes)</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37-5'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"request success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"avgPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dealQuantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderMode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderProperty"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderSide"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderState"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priceGap"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"triggerPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orders</td>
+<td>Order information</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Order placement quantity</td>
+</tr>
+<tr>
+<td>avgPrice</td>
+<td>Average deal price</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>Order placement time</td>
+</tr>
+<tr>
+<td>dealQuantity</td>
+<td>Deal quantity</td>
+</tr>
+<tr>
+<td>orderId</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td>price</td>
+<td>Order placement price</td>
+</tr>
+<tr>
+<td>orderState</td>
+<td>1: Not filled, 2: partially filled, 9: totally filled, 19: cancelled</td>
+</tr>
+<tr>
+<td>orderSide</td>
+<td>1:buy / 2:sell</td>
+</tr>
+<tr>
+<td>triggerPrice</td>
+<td>Trigger Price</td>
+</tr>
+<tr>
+<td>priceGap</td>
+<td>Price Gap</td>
+</tr>
+<tr>
+<td>orderMode</td>
+<td>Order mode: standard mode:0; stop loss:10; take profit:11; trailing stop:20</td>
+</tr>
+<tr>
+<td>orderProperty</td>
+<td>OrderProperty : Standard property:0; FAK:1; FOK:2; POST-ONLY:3</td>
+</tr>
+</tbody></table>
+<h3 id='fa8151cde7'>Get Order Information in the Latest 24 Hours</h3><h4 id='02b6a89191-11'>Request</h4>
+<p><code>POST https://openapi.idax.pro/api/v2/orderHistory</code></p>
+<h4 id='02b6a89191-12'>Request</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderState</td>
+<td>Integer</td>
+<td>Yes</td>
+<td>Query status.</td>
+</tr>
+</tbody></table>
+
+<p>-1: All statuses,
+0: unfinished state,
+1: completed state. | 
+| pair  | String    | Yes   | Trading pairs supported by IDAX | 
+| pageIndex | Integer   | No    | Current page number | 
+| pageSize  | Integer   | No    | The maximum number of strings on each page is 1,000. | 
+| key   | String    | Yes   | API Key | 
+| sign  | String    | Yes   | Signature of the request parameter | 
+| timestamp | Long  | Yes   | Request timestamp (effective within 3 minutes) | </p>
+<h4 id='4c961faf37-6'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"request success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"avgPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dealQuantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderMode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderProperty"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderSide"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderState"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priceGap"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"triggerPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"pageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orders</td>
+<td>Order information</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Order placement quantity</td>
+</tr>
+<tr>
+<td>avgPrice</td>
+<td>Average deal price</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>Order placement time</td>
+</tr>
+<tr>
+<td>dealQuantity</td>
+<td>Deal quantity</td>
+</tr>
+<tr>
+<td>orderId</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td>price</td>
+<td>Order placement price</td>
+</tr>
+<tr>
+<td>orderState</td>
+<td>1: Not filled, 2: partially filled, 9: totally filled, 19: cancelled</td>
+</tr>
+<tr>
+<td>orderSide</td>
+<td>1:buy / 2:sell</td>
+</tr>
+<tr>
+<td>triggerPrice</td>
+<td>Trigger Price</td>
+</tr>
+<tr>
+<td>priceGap</td>
+<td>Price Gap</td>
+</tr>
+<tr>
+<td>orderMode</td>
+<td>Order mode: standard mode:0; stop loss:10; take profit:11; trailing stop:20</td>
+</tr>
+<tr>
+<td>orderProperty</td>
+<td>OrderProperty : Standard property:0; FAK:1; FOK:2; POST-ONLY:3</td>
+</tr>
+<tr>
+<td>pageIndex</td>
+<td>Current page number</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>Page length</td>
+</tr>
+<tr>
+<td>total</td>
+<td>Total records</td>
+</tr>
+</tbody></table>
+<h3 id='5f30ccda42'>Get Order Information before the Latest 24 Hours</h3><h4 id='02b6a89191-13'>Request</h4>
+<p><code>POST https://openapi.idax.pro/api/v2/beforeOrderHistory</code></p>
+<h4 id='02b6a89191-14'>Request</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pair</td>
+<td>String</td>
+<td>Yes</td>
+<td>Trading pairs supported by IDAX</td>
+</tr>
+<tr>
+<td>orderState</td>
+<td>Integer</td>
+<td>Yes</td>
+<td>Query status.</td>
+</tr>
+</tbody></table>
+
+<p>-1: All statuses,
+0: unfinished state,
+1: completed state. |
+| orderSide | Integer   |Yes    | 0 All 1 buy 2 sell |
+| startTime | Long  |Yes    | start time |
+| endTime   | Long  |Yes    | End time |
+| pageIndex | Integer   |No | Current page number |
+| pageSize  | Integer   |No | The maximum number of strings on each page is 1,000. |
+| key   | String    |Yes    | API Key |
+| sign  | String    |Yes    | Signature of the request parameter |
+| timestamp | Long  |Yes    | Request timestamp (effective within 3 minutes) |</p>
+<h4 id='4c961faf37-7'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"Successful request processing"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"avgPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dealQuantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderMode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderProperty"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderSide"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderState"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priceGap"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"triggerPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"pageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orders</td>
+<td>Order information</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Order placement quantity</td>
+</tr>
+<tr>
+<td>avgPrice</td>
+<td>Average deal price</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>Order placement time</td>
+</tr>
+<tr>
+<td>dealQuantity</td>
+<td>Deal quantity</td>
+</tr>
+<tr>
+<td>orderId</td>
+<td>Order ID</td>
+</tr>
+<tr>
+<td>price</td>
+<td>Order placement price</td>
+</tr>
+<tr>
+<td>orderState</td>
+<td>1: Not filled, 2: partially filled, 9: totally filled, 19: cancelled</td>
+</tr>
+<tr>
+<td>orderSide</td>
+<td>1:buy / 2:sell</td>
+</tr>
+<tr>
+<td>triggerPrice</td>
+<td>Trigger Price</td>
+</tr>
+<tr>
+<td>priceGap</td>
+<td>Price Gap</td>
+</tr>
+<tr>
+<td>orderMode</td>
+<td>Order mode: standard mode:0; stop loss:10; take profit:11; trailing stop:20</td>
+</tr>
+<tr>
+<td>orderProperty</td>
+<td>OrderProperty : Standard property:0; FAK:1; FOK:2; POST-ONLY:3</td>
+</tr>
+<tr>
+<td>pageIndex</td>
+<td>Current page number</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>Page length</td>
+</tr>
+<tr>
+<td>total</td>
+<td>Total records</td>
+</tr>
+</tbody></table>
+<h3 id='1f49656bff'>Get historical transaction information</h3><h4 id='02b6a89191-15'>Request</h4>
+<p><code>POST https://openapi.idax.pro/api/v2/tradesHistory</code></p>
+<h4 id='02b6a89191-16'>Request</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pair</td>
+<td>String</td>
+<td>Yes</td>
+<td>Trading pairs supported by IDAX</td>
+</tr>
+<tr>
+<td>since</td>
+<td>String</td>
+<td>Yes</td>
+<td>since: The transaction ID is obtained from the specified transaction ID; when no ID is specified, the latest transaction information (up to 600 strings of data) is returned.</td>
+</tr>
+<tr>
+<td>key</td>
+<td>String</td>
+<td>Yes</td>
+<td>API Key</td>
+</tr>
+<tr>
+<td>sign</td>
+<td>String</td>
+<td>Yes</td>
+<td>Signature of the request parameter</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>Long</td>
+<td>Yes</td>
+<td>Request timestamp (effective within 3 minutes)</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37-8'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"request success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trades"</span><span class="p">:[{</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1367130137</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"787.71"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.003"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2304331234</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"maker"</span><span class="p">:</span><span class="s2">"buy"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1367130137</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"787.71"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.003"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2304330000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"maker"</span><span class="p">:</span><span class="s2">"sell"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>timestamp</td>
+<td>Deal time(ms)</td>
+</tr>
+<tr>
+<td>price</td>
+<td>Transaction price</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Transaction quantity</td>
+</tr>
+<tr>
+<td>maker</td>
+<td>Deal type: buy/sell</td>
+</tr>
+<tr>
+<td>id</td>
+<td>Transaction record ID</td>
+</tr>
+</tbody></table>
+<h3 id='de257462ae'>Get my historical transaction information</h3><h4 id='02b6a89191-17'>Request</h4>
+<p><code>POST https://openapi.idax.pro/api/v2/myTrades</code></p>
+<h4 id='02b6a89191-18'>Request</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pair</td>
+<td>String</td>
+<td>Yes</td>
+<td>Trading pairs supported by IDAX</td>
+</tr>
+<tr>
+<td>orderSide</td>
+<td>String</td>
+<td>No</td>
+<td>buy: bid, sell: ask</td>
+</tr>
+<tr>
+<td>startDate</td>
+<td>Long</td>
+<td>No</td>
+<td>start time</td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>Long</td>
+<td>No</td>
+<td>End time</td>
+</tr>
+<tr>
+<td>pageIndex</td>
+<td>Integer</td>
+<td>No</td>
+<td>Current page number</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>Integer</td>
+<td>No</td>
+<td>The maximum number of strings on each page is 1,000.</td>
+</tr>
+<tr>
+<td>key</td>
+<td>String</td>
+<td>Yes</td>
+<td>API Key</td>
+</tr>
+<tr>
+<td>sign</td>
+<td>String</td>
+<td>Yes</td>
+<td>Signature of the request parameter</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>Long</td>
+<td>Yes</td>
+<td>Request timestamp (effective within 3 minutes)</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37-9'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"request success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trades"</span><span class="p">:[{</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1367130137</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"787.71"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.003"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pair"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH_BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"maker"</span><span class="p">:</span><span class="s2">"buy"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1367130137</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"787.71"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.003"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pair"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EOS_BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"maker"</span><span class="p">:</span><span class="s2">"sell"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>timestamp</td>
+<td>Deal time(ms)</td>
+</tr>
+<tr>
+<td>price</td>
+<td>Transaction price</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Transaction quantity</td>
+</tr>
+<tr>
+<td>maker</td>
+<td>Deal type:buy / sell</td>
+</tr>
+<tr>
+<td>pair</td>
+<td>Trading Pair</td>
+</tr>
+</tbody></table>
+<h2 id='170b9f99c2'>Public Interface</h2><h3 id='899dd936ab'>Get server timestamp</h3><h4 id='02b6a89191-19'>Request</h4>
+<p><code>GET https://openapi.idax.pro/api/v2/systemTime</code></p>
+<h4 id='02b6a89191-20'>Request</h4>
+<p>None</p>
+<h4 id='4c961faf37-10'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"request success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1417449600000</span><span class="w">
+</span><span class="p">}</span><span class="w"> 
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>timestamp</td>
+<td>1417449600000：Server timestamp</td>
+</tr>
+</tbody></table>
+<h3 id='32c1066fac'>Signature算法验证</h3><h4 id='02b6a89191-21'>Request</h4>
+<p><code>GET https://openapi.idax.pro/api/v2/getSign</code></p>
+<h4 id='02b6a89191-22'>Request</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>needSignature</td>
+<td>String</td>
+<td>Yes</td>
+<td>Data to be signed</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37-11'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful request processing"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sign"</span><span class="p">:</span><span class="w"> </span><span class="s2">"907ab44a485727b604354da47acc6e54e1abeff73defcaa282f38c50b21877ec"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sign</td>
+<td>Signature</td>
+</tr>
+</tbody></table>
+<h3 id='5ed29f9011'>Get market tickers</h3><h4 id='02b6a89191-23'>Request</h4>
+<p><code>GET https://openapi.idax.pro/api/v2/ticker</code></p>
+<h4 id='02b6a89191-24'>Request</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pair</td>
+<td>String</td>
+<td>No</td>
+<td>Trading pairs supported by IDAX. Market tickers of specific transaction pairs are returned when pairs are specified; Market tickers of all transaction pairs are returned when no pairs are specified;</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37-12'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"request success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1417449600000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ticker"</span><span class="p">:[{</span><span class="w">
+        </span><span class="s2">"pair"</span><span class="p">:</span><span class="s2">"ETH_BTC"</span><span class="w">
+        </span><span class="s2">"open"</span><span class="p">:</span><span class="s2">"33.15"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"high"</span><span class="p">:</span><span class="s2">"34.15"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"low"</span><span class="p">:</span><span class="s2">"32.05"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last"</span><span class="p">:</span><span class="s2">"33.15"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vol"</span><span class="p">:</span><span class="s2">"1053.3919"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>timestamp</td>
+<td>Server time</td>
+</tr>
+<tr>
+<td>pair</td>
+<td>Trading Pair</td>
+</tr>
+<tr>
+<td>open</td>
+<td>Opening price</td>
+</tr>
+<tr>
+<td>high</td>
+<td>Highest price</td>
+</tr>
+<tr>
+<td>low</td>
+<td>Lowest price</td>
+</tr>
+<tr>
+<td>last</td>
+<td>Latest deal price</td>
+</tr>
+<tr>
+<td>vol</td>
+<td>Volume (within the latest 24 hours)</td>
+</tr>
+</tbody></table>
+<h3 id='791b282538'>Get depth tickers</h3><h4 id='02b6a89191-25'>Request</h4>
+<p><code>GET https://openapi.idax.pro/api/v2/depth</code></p>
+<h4 id='02b6a89191-26'>Request</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pair</td>
+<td>String</td>
+<td>Yes</td>
+<td>Trading pairs supported by IDAX</td>
+</tr>
+<tr>
+<td>size</td>
+<td>Integer</td>
+<td>No</td>
+<td>value: 1-200，Unidirectional strings(100 by default)</td>
+</tr>
+<tr>
+<td>merge</td>
+<td>Integer</td>
+<td>No</td>
+<td>value: 0~8 (the decimal place supported by different trading on the ticker pairs may be different), decimal places merged(by default, 8)</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37-13'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"request success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"asks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"792"</span><span class="p">,</span><span class="w"> </span><span class="s2">"5"</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"789.68"</span><span class="p">,</span><span class="w"> </span><span class="s2">"0.018"</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"788.99"</span><span class="p">,</span><span class="w"> </span><span class="s2">"0.042"</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"788.43"</span><span class="p">,</span><span class="w"> </span><span class="s2">"0.036"</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"787.27"</span><span class="p">,</span><span class="w"> </span><span class="s2">"0.02"</span><span class="p">]</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"bids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"787.1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"0.35"</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"787"</span><span class="p">,</span><span class="w"> </span><span class="s2">"12.071"</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"786.5"</span><span class="p">,</span><span class="w"> </span><span class="s2">"0.014"</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"786.2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"0.38"</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"786"</span><span class="p">,</span><span class="w"> </span><span class="s2">"3.217"</span><span class="p">]</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>asks</td>
+<td>Seller depth [price, quantity]</td>
+</tr>
+<tr>
+<td>bids</td>
+<td>Buyer depth [price, quantity]</td>
+</tr>
+</tbody></table>
+<h3 id='f664b5f70f'>Get K-line data</h3><h4 id='02b6a89191-27'>Request</h4>
+<p><code>GET https://openapi.idax.pro/api/v2/kline</code></p>
+<h4 id='02b6a89191-28'>Request</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pair</td>
+<td>String</td>
+<td>Yes</td>
+<td>Trading pairs supported by IDAX</td>
+</tr>
+<tr>
+<td>period</td>
+<td>Long</td>
+<td>Yes</td>
+<td>1min,5min,15min,30min,1hour,2hour,4hour,6hour,12hour,1day,1week</td>
+</tr>
+<tr>
+<td>size</td>
+<td>Integer</td>
+<td>No</td>
+<td>Specify the number of strings of data to be obtained(all are obtained by default)</td>
+</tr>
+<tr>
+<td>since</td>
+<td>Long</td>
+<td>No</td>
+<td>Timestamp</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37-14'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"request success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"kline"</span><span class="p">:[</span><span class="w">
+        </span><span class="mi">1417449600000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"2339.11"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"2383.15"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"2322"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"2369.85"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"83850.06"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1417449600000</td>
+<td>timestamp</td>
+</tr>
+<tr>
+<td>2370.16</td>
+<td>Opening</td>
+</tr>
+<tr>
+<td>2380</td>
+<td>Highest</td>
+</tr>
+<tr>
+<td>2352</td>
+<td>Lowest</td>
+</tr>
+<tr>
+<td>2367.37</td>
+<td>Closing</td>
+</tr>
+<tr>
+<td>17259.83</td>
+<td>Trade volume</td>
+</tr>
+</tbody></table>
+<h3 id='aa711b5db9'>Get the latest deal information</h3><h4 id='02b6a89191-29'>Request</h4>
+<p><code>GET https://openapi.idax.pro/api/v2/trades</code></p>
+<h4 id='02b6a89191-30'>Request</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pair</td>
+<td>String</td>
+<td>Yes</td>
+<td>Trading pairs supported by IDAX</td>
+</tr>
+<tr>
+<td>total</td>
+<td>int</td>
+<td>No</td>
+<td>Total records</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37-15'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"request success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trades"</span><span class="p">:[{</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1417449600000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"787.71"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.003"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"230433"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"maker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1417449600000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"787.71"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.003"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"230433"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"maker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sell"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>timestamp</td>
+<td>Deal time(ms)</td>
+</tr>
+<tr>
+<td>price</td>
+<td>Transaction price</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Transaction quantity</td>
+</tr>
+<tr>
+<td>id</td>
+<td>Transaction record ID</td>
+</tr>
+<tr>
+<td>maker</td>
+<td>Deal type:buy / sell</td>
+</tr>
+</tbody></table>
+<h3 id='ea8ab3d4b0'>Get list of trading pairs</h3><h4 id='02b6a89191-31'>Request</h4>
+<p><code>GET https://openapi.idax.pro/api/v2/pairs</code></p>
+<h4 id='02b6a89191-32'>Request</h4>
+<p>None</p>
+<h4 id='4c961faf37-16'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful request processing"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pairs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"DROP_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"VIBE_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PAT_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ELEC_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TRX_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ANON_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"LTC_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"NER_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"FML_ETH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"C2C_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"MTV_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"AE_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"EOS_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"REN_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"RET_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"LRN_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"MRPH_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"VRS_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"LINDA_BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"WT_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ZAT_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SDL_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"FTL_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"OCT_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"VEX_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TPP_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"WIRE_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SPD_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"GBC_BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"STORJ_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BRN_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"WIRE_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"HERC_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"WT_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ABBC_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"EVE_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TPP_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"CLO_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"VIBE_USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"EOS_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"XRP_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"AEN_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"STSC_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DROP_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"WAB_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ZAT_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"OMG_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"UQC_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"WIT_ETH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RET_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"OCT_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PX_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"LRN_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"MTV_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"VRS_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"CLO_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"CTC_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"OST_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SNT_ETH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"TIC_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"NRC_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TRX_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BAAS_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"HERC_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"RET_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TRF_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"EDR_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DLP_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ZEN_BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"VIN_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BOC_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"XET_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ZING_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ETC_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"COS_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"GUPASS_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"AE_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ABTC_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"NULS_BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"TRF_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"VIN_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ARP_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"UCN_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"LRC_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"FEX_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"OMG_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"UQC_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"HYDRO_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"WIRE_ETH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"TKGN_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ABTC_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BCHABC_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"MTV_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"AEN_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"MRPH_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"LIGHT_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DASC_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"EVC_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ETH_USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"STORJ_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TIC_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PCCM_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SPD_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"NRC_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"AIC_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"HBZ_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TBL_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"EVE_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BCHSV_BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"FML_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DIY_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"XET_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"XRP_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"NER_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"KRM_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"MO_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PLAN_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DEX_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DASC_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"FEX_ETH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"MGO_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ONTOP_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ZING_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"POE_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DIY_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"CYFM_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PPI_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SFU_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"CAPP_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"FIC_BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"NULS_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"CPLO_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TAT_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"EAE_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"NULS_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"VIT_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"FTX_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"LRC_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ZEN_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"HYDRO_BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"STSC_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TMC_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PHR_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"NFFC_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TRX_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"NTY_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SCRL_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"CAN_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PCCM_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"VIT_ETH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"EVC_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"HBZ_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ZEN_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ARN_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PHR_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"AIC_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SNT_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DLP_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SCRL_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"CTC_ETH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DEX_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"MEDIBIT_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"FOTA_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DPN_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PSM_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TUSD_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"NPX_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DLP_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"FUNDZ_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"FTX_BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PIX_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PX_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"FOTA_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"UCN_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ILC_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"GNAIT_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ADK_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PIX_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"XHV_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"WICC_ETH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"APT_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TMC_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"NPX_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"IOST_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PX_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"VIBE_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"HERC_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SW_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"NIX_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"MCT_ETH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"APL_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"LIGHT_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"WICC_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"EVE_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TUSD_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SHIFT_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"NIX_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"CAPP_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TAT_ETH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"WAB_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SW_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BAAS_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ADK_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TMC_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"MEDIBIT_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"OCT_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DPN_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"HQT_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"REN_BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PSM_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PPI_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"STSC_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"FID_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"C2C_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"FUNDZ_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ANON_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TUSD_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"LTC_USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"WIT_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"LGC_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"APL_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DROP_USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SHIFT_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ILC_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"CAN_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"XHV_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"UCN_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"GBC_ETH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PAT_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"CAPP_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"APIS_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ETH_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ARN_BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"FIC_ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"APT_ETH"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pairs</td>
+<td>&quot;DROP_BTC&quot;：Trading Pair</td>
+</tr>
+</tbody></table>
+<h3 id='668bb38df6'>Get trading pair configuration</h3><h4 id='02b6a89191-33'>Request</h4>
+<p><code>GET https://openapi.idax.pro/api/v2/pairLimits</code></p>
+<h4 id='02b6a89191-34'>Request</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pair</td>
+<td>String</td>
+<td>No</td>
+<td>Trading pairs supported by IDAX</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37-17'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"request success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pairRuleVo"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"pairName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH_BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"maxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000000000.00000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"minAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00100000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priceDecimalPlace"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"qtyDecimalPlace"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pairName</td>
+<td>Trading Pair</td>
+</tr>
+<tr>
+<td>maxAmount</td>
+<td>Maximum amount</td>
+</tr>
+<tr>
+<td>minAmount</td>
+<td>Minimum amount</td>
+</tr>
+<tr>
+<td>priceDecimalPlace</td>
+<td>Price decimal place</td>
+</tr>
+<tr>
+<td>qtyDecimalPlace</td>
+<td>Quantity decimal place</td>
+</tr>
+</tbody></table>
+<h3 id='610df70ec5'>Get quote currency valuation</h3><h4 id='02b6a89191-35'>Request</h4>
+<p><code>GET https://openapi.idax.pro/api/v2/pairRate</code></p>
+<h4 id='02b6a89191-36'>Request</h4>
+<p>None</p>
+<h4 id='4c961faf37-18'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful request processing"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"marketValuationCnies"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"coinName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cny"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35203.948166"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5238.89637256"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"coinName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cny"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1209.3710803"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"179.973272765"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"coinName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cny"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6.8006186881"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0120380932"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>coinName</td>
+<td>Currency Name</td>
+</tr>
+<tr>
+<td>cny</td>
+<td>CNY</td>
+</tr>
+<tr>
+<td>usd</td>
+<td>usd</td>
+</tr>
+</tbody></table>
+<h3 id='2bea290d60'>Get the Coin/Token list</h3><h4 id='02b6a89191-37'>Request</h4>
+<p><code>GET https://openapi.idax.pro/api/v2/coinList</code></p>
+<h4 id='02b6a89191-38'>Request</h4>
+<p>None</p>
+<h4 id='4c961faf37-19'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful request processing"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"coinList"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"coinCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"coinName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bitcoin"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"canDeposit"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"canWithdraw"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"minWithdrawal"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00100000</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"coinCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"coinName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ethereum"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"canDeposit"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"canWithdraw"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"minWithdrawal"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01000000</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"coinCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EOS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"coinName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EOS"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"canDeposit"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"canWithdraw"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"minWithdrawal"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.00000000</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>coinCode</td>
+<td>coinCode</td>
+</tr>
+<tr>
+<td>coinName</td>
+<td>coinName</td>
+</tr>
+<tr>
+<td>canDeposit</td>
+<td>canDeposit</td>
+</tr>
+<tr>
+<td>canWithdraw</td>
+<td>canWithdraw</td>
+</tr>
+<tr>
+<td>minWithdrawal</td>
+<td>minWithdrawal</td>
+</tr>
+</tbody></table>
+<h3 id='29e74d727d'>Get support exchange pair list</h3><h4 id='02b6a89191-39'>Request</h4>
+<p><code>GET curl https://openapi.idax.pro/api/v2/pairList?pair=ETH_BTC</code></p>
+<h4 id='02b6a89191-40'>Request</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pair</td>
+<td>String</td>
+<td>No</td>
+<td>Trading pairs supported by IDAX</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37-20'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful request processing"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pairList"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"pairName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH_BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"maxAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000000000.00000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"minAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00100000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priceDecimalPlace"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"qtyDecimalPlace"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"baseCoinCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quoteCoinCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pairName</td>
+<td>Trading Pair</td>
+</tr>
+<tr>
+<td>status</td>
+<td>pair status</td>
+</tr>
+<tr>
+<td>maxAmount</td>
+<td>Maximum amount</td>
+</tr>
+<tr>
+<td>minAmount</td>
+<td>Minimum amount</td>
+</tr>
+<tr>
+<td>priceDecimalPlace</td>
+<td>Price decimal place</td>
+</tr>
+<tr>
+<td>qtyDecimalPlace</td>
+<td>Quantity decimal place</td>
+</tr>
+<tr>
+<td>baseCoinCode</td>
+<td>Base Coin Code</td>
+</tr>
+<tr>
+<td>quoteCoinCode</td>
+<td>Quote Coin Code</td>
+</tr>
+</tbody></table>
+<h1 id='72d9ea9837'>WebSocket API</h1><h2 id='82e4ba959d'>Subscribe to trend data</h2><h4 id='02b6a89191'>Request</h4>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>websocket.send("{
+ 'event':'addChannel',
+ 'channel':'idax_sub_X_ticker'}");
+
+</code></pre>
+<aside class="notice">
+X value: Transaction pairs supported by IDAX (Monitoring is case-insensitive, but the message is lowercase when pushed.)
+</aside>
+<h4 id='aa76a36318'>Request Parameter</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event</td>
+<td>String</td>
+<td>Yes</td>
+<td style="text-align: center">Subscribe event</td>
+</tr>
+<tr>
+<td>channel</td>
+<td>String</td>
+<td>Yes</td>
+<td style="text-align: center">Subscribe channel</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"channel"</span><span class="p">:</span><span class="s2">"idax_sub_eth_btc_ticker"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:[{</span><span class="w">
+    </span><span class="s2">"open"</span><span class="p">:</span><span class="s2">"2466"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"high"</span><span class="p">:</span><span class="s2">"2555"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"low"</span><span class="p">:</span><span class="s2">"2466"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last"</span><span class="p">:</span><span class="s2">"2478.51"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1411718074965</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"vol"</span><span class="p">:</span><span class="s2">"49020.30"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td style="text-align: center">Server time</td>
+</tr>
+<tr>
+<td>open</td>
+<td>double</td>
+<td style="text-align: center">Opening price</td>
+</tr>
+<tr>
+<td>high</td>
+<td>double</td>
+<td style="text-align: center">Highest price</td>
+</tr>
+<tr>
+<td>low</td>
+<td>double</td>
+<td style="text-align: center">Lowest price</td>
+</tr>
+<tr>
+<td>last</td>
+<td>double</td>
+<td style="text-align: center">Latest deal price</td>
+</tr>
+<tr>
+<td>vol</td>
+<td>double</td>
+<td style="text-align: center">Volume (within the latest 24 hours)</td>
+</tr>
+</tbody></table>
+<h2 id='06c491a5ff'>Subscribe to market depth (return incremental data)</h2><h4 id='02b6a89191-2'>Request</h4>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>websocket.send("{
+ 'event':'addChannel',
+ 'channel':'idax_sub_X_depth'}");
+</code></pre>
+<aside class="notice">
+X value: Transaction pairs supported by IDAX (Monitoring is case-insensitive, but the message is lowercase when pushed.)
+</aside>
+<h4 id='aa76a36318-2'>Request Parameter</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event</td>
+<td>String</td>
+<td>Yes</td>
+<td style="text-align: center">Subscribe event</td>
+</tr>
+<tr>
+<td>channel</td>
+<td>String</td>
+<td>Yes</td>
+<td style="text-align: center">Subscribe channel</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37-2'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="s2">"channel"</span><span class="p">:</span><span class="s2">"idax_sub_eth_btc_depth"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"data"</span><span class="p">:[{</span><span class="w">
+    </span><span class="s2">"bids"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"2473.88"</span><span class="p">,</span><span class="s2">"2.025"</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"2473.5"</span><span class="p">,</span><span class="s2">"2.4"</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"2470"</span><span class="p">,</span><span class="s2">"12.203"</span><span class="p">]</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"asks"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"2484"</span><span class="p">,</span><span class="s2">"17.234"</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"2483.01"</span><span class="p">,</span><span class="s2">"6"</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"2482.88"</span><span class="p">,</span><span class="s2">"3"</span><span class="p">]</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1411718972024</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>bids</td>
+<td>[string, string]</td>
+<td style="text-align: center">Buyer depth</td>
+</tr>
+<tr>
+<td>asks</td>
+<td>[string, string]</td>
+<td style="text-align: center">Seller depth</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td style="text-align: center">Server timestamp</td>
+</tr>
+</tbody></table>
+
+<p>Use description: Firstly, the whole market depth data are returned (&lt;=200 price levels), then the incremental data will be returned based on the server data in following three ways:</p>
+
+<ul>
+<li>Delete (when the quantity is 0.),</li>
+<li>Amend (When the prices are the same while the quantities are different.),</li>
+<li>Increase (When new price presents.)</li>
+</ul>
+<h2 id='030bb7eacc'>Subscribe to market depth (pushed once per second)</h2><h4 id='02b6a89191-3'>Request</h4>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>websocket.send("{
+ 'event':'addChannel',
+ 'channel':'idax_sub_X_depth_Y'}");
+</code></pre>
+<aside class="notice">
+X value: Transaction pairs supported by IDAX (Monitoring is case-insensitive, but the message is lowercase when pushed.)
+<br>
+Y value: 5, 10, 20, 50(Market depth)
+</aside>
+<h4 id='aa76a36318-3'>Request Parameter</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event</td>
+<td>String</td>
+<td>Yes</td>
+<td style="text-align: center">Subscribe event</td>
+</tr>
+<tr>
+<td>channel</td>
+<td>String</td>
+<td>Yes</td>
+<td style="text-align: center">Subscribe channel</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37-3'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="s2">"channel"</span><span class="p">:</span><span class="s2">"idax_sub_eth_btc_depth_20"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"data"</span><span class="p">:[{</span><span class="w">
+    </span><span class="s2">"bids"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"2473.88"</span><span class="p">,</span><span class="s2">"2.025"</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"2473.5"</span><span class="p">,</span><span class="s2">"2.4"</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"2470"</span><span class="p">,</span><span class="s2">"12.203"</span><span class="p">]</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"asks"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"2484"</span><span class="p">,</span><span class="s2">"17.234"</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"2483.01"</span><span class="p">,</span><span class="s2">"6"</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"2482.88"</span><span class="p">,</span><span class="s2">"3"</span><span class="p">]</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1411718972024</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>bids</td>
+<td>[string, string]</td>
+<td style="text-align: center">Buyer depth</td>
+</tr>
+<tr>
+<td>asks</td>
+<td>[string, string]</td>
+<td style="text-align: center">Seller depth</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td style="text-align: center">Server timestamp</td>
+</tr>
+</tbody></table>
+<h2 id='862e989c78'>Subscribe to deal records</h2><h4 id='02b6a89191-4'>Request</h4>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>websocket.send("{
+ 'event':'addChannel',
+ 'channel':'idax_sub_X_trades'}");
+</code></pre>
+<aside class="notice">
+X value: Transaction pairs supported by IDAX (Monitoring is case-insensitive, but the message is lowercase when pushed.)
+</aside>
+<h4 id='aa76a36318-4'>Request Parameter</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event</td>
+<td>String</td>
+<td>Yes</td>
+<td style="text-align: center">Subscribe event</td>
+</tr>
+<tr>
+<td>channel</td>
+<td>String</td>
+<td>Yes</td>
+<td style="text-align: center">Subscribe channel</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37-4'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"channel"</span><span class="p">:</span><span class="s2">"idax_sub_eth_btc_trades"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:[[</span><span class="s2">"1001"</span><span class="p">,</span><span class="s2">"2463.86"</span><span class="p">,</span><span class="s2">"0.052"</span><span class="p">,</span><span class="mi">1411718972024</span><span class="p">,</span><span class="s2">"buy"</span><span class="p">]]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>channel</td>
+<td>String</td>
+<td style="text-align: center">Subscribe channel</td>
+</tr>
+<tr>
+<td>data</td>
+<td>[String, String]</td>
+<td style="text-align: center">Transaction serial number, price, volume, deal time, transaction type (buy</td>
+</tr>
+</tbody></table>
+<h2 id='d30aa2e71b'>Subscribe to K-line data</h2><h4 id='02b6a89191-5'>Request</h4>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>websocket.send("{
+ 'event':'addChannel',
+ 'channel':'idax_sub_X_kline_Y'}");
+</code></pre>
+<aside class="notice">
+
+X value: Transaction pairs supported by IDAX (Monitoring is case-insensitive, but the message is lowercase when pushed.)
+Y值为: 1min, 5min, 15min, 30min, 1hour, 2hour, 4hour, 6hour, 12hour, 1day, 1week
+
+</aside>
+<h4 id='aa76a36318-5'>Request Parameter</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event</td>
+<td>String</td>
+<td>Yes</td>
+<td style="text-align: center">Subscribe event</td>
+</tr>
+<tr>
+<td>channel</td>
+<td>String</td>
+<td>Yes</td>
+<td style="text-align: center">Subscribe channel</td>
+</tr>
+</tbody></table>
+<h4 id='4c961faf37-5'>Response</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"channel"</span><span class="p">:</span><span class="s2">"idax_sub_eth_btc_kline_1min"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"1490337840000"</span><span class="p">,</span><span class="s2">"995.37"</span><span class="p">,</span><span class="s2">"996.75"</span><span class="p">,</span><span class="s2">"995.36"</span><span class="p">,</span><span class="s2">"996.75"</span><span class="p">,</span><span class="s2">"9.112"</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="s2">"1490337840000"</span><span class="p">,</span><span class="s2">"995.37"</span><span class="p">,</span><span class="s2">"996.75"</span><span class="p">,</span><span class="s2">"995.36"</span><span class="p">,</span><span class="s2">"996.75"</span><span class="p">,</span><span class="s2">"9.112"</span><span class="p">]</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th style="text-align: center">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>channel</td>
+<td>String</td>
+<td style="text-align: center">Subscribe channel</td>
+</tr>
+<tr>
+<td>data</td>
+<td>[String, String]</td>
+<td style="text-align: center">Timestamp, opening price, highest price, lowest price, closing price, deal volume</td>
+</tr>
+</tbody></table>
+<h1 id='38fc5be34e'>Perpetual API</h1>
+<p>永续合约交易的行情信息，账户信息，订单操作，订单查询，账单明细查询</p>
+<h2 id='616805b092'>Position</h2><h3 id='6665ff8be8'>Get all positions infomation</h3>
+<p>获取账户所有合约的持仓信息。请求此接口，会在数据库遍历所有币对下的持仓数据，有大量的性能消耗,请求频率较低。建议用户传合约ID获取持仓信息。</p>
+<h4 id='32b9b8d005'>Rate Limit</h4>
+<p>5 requests per second</p>
+<h4 id='ddeb691a06'>HTTP Request</h4>
+<p><code>GET /api/v3/position</code></p>
+<h4 id='e97b0d366b'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>instrument_id</td>
+<td>String</td>
+<td>Yes</td>
+<td>Instrument ID，for example: BTC_USD</td>
+</tr>
+</tbody></table>
+<h4 id='577eaea8c6'>Response Parameters</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>instrument_id</td>
+<td>String</td>
+<td>Instrument ID，for example: BTC_USD</td>
+</tr>
+</tbody></table>
+<h3 id='c4b465bd44'>Get Position Info</h3>
+<p>获取某个合约的持仓信息</p>
+<h4 id='32b9b8d005-2'>Rate Limit</h4>
+<p>5 requests per second</p>
+<h4 id='ddeb691a06-2'>HTTP Request</h4>
+<p><code>GET /api/v1/cfd/order/holdPositionList</code></p>
+<h4 id='e97b0d366b-2'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>productCode</td>
+<td>string</td>
+<td>否</td>
+<td>产品编号，如ETH/USDT</td>
+</tr>
+</tbody></table>
+<h4 id='577eaea8c6-2'>Response Parameters</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"productCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH/USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderSide"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"marginAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"averagePrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"flatQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"frozenQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"currentPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"winLoss"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"winLossRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>int</td>
+<td>接口返回状态，0为成功</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>接口返回描述</td>
+</tr>
+<tr>
+<td>id</td>
+<td>long</td>
+<td>持仓编号</td>
+</tr>
+<tr>
+<td>productCode</td>
+<td>string</td>
+<td>产品编号</td>
+</tr>
+<tr>
+<td>orderSide</td>
+<td>string</td>
+<td>订单方向</td>
+</tr>
+<tr>
+<td>marginAmount</td>
+<td>double</td>
+<td>保证金</td>
+</tr>
+<tr>
+<td>averagePrice</td>
+<td>double</td>
+<td>持仓均价</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>double</td>
+<td>持仓数量</td>
+</tr>
+<tr>
+<td>flatQuantity</td>
+<td>double</td>
+<td>可平数量（持仓数量-冻结数量）</td>
+</tr>
+<tr>
+<td>frozenQuantity</td>
+<td>double</td>
+<td>冻结数量</td>
+</tr>
+<tr>
+<td>currentPrice</td>
+<td>double</td>
+<td>公允价格</td>
+</tr>
+<tr>
+<td>winLoss</td>
+<td>double</td>
+<td>盈亏</td>
+</tr>
+<tr>
+<td>winLossRate</td>
+<td>double</td>
+<td>盈亏率</td>
+</tr>
+</tbody></table>
+<h2 id='20671f8826'>Account</h2><h3 id='71a2ea5019'>账户资产信息</h3>
+<p>获取账户资产信息</p>
+<h4 id='32b9b8d005-3'>Rate Limit</h4>
+<p>5 requests per second</p>
+<h4 id='ddeb691a06-3'>HTTP Request</h4>
+<p><code>GET /api/v1/cfd/account/info</code></p>
+<h4 id='e97b0d366b-3'>Request Parameters</h4>
+<p>无</p>
+<h4 id='577eaea8c6-3'>Response Parameters</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"coinCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"availableAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000000.00000000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"marginAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0E-8</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"frozenAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0E-8</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"winLoss"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"riskRatio"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>int</td>
+<td>接口返回状态，0为成功</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>接口返回描述</td>
+</tr>
+<tr>
+<td>coinCode</td>
+<td>string</td>
+<td>币种code</td>
+</tr>
+<tr>
+<td>availableAmount</td>
+<td>double</td>
+<td>可用金额</td>
+</tr>
+<tr>
+<td>marginAmount</td>
+<td>double</td>
+<td>已用金额</td>
+</tr>
+<tr>
+<td>frozenAmount</td>
+<td>double</td>
+<td>冻结金额</td>
+</tr>
+<tr>
+<td>winLoss</td>
+<td>double</td>
+<td>浮动盈亏</td>
+</tr>
+<tr>
+<td>riskRatio</td>
+<td>double</td>
+<td>风险率</td>
+</tr>
+</tbody></table>
+<h3 id='f6210940dc'>单个币种合约账户信息</h3>
+<p>获取单个币种合约的账户信息</p>
+<h3 id='f2d4c283d1'>获取某个合约的用户配置</h3>
+<p>获取某个合约的杠杆倍数，持仓模式</p>
+<h3 id='37e819b7ba'>设定某个合约的杠杆</h3>
+<p>设定某个合约的杠杆倍数</p>
+<h3 id='a248081af7'>账户资产流水查询</h3>
+<p>列出账户资产流水，账户资产流水是指导致账户余额增加或减少的行为。流水会分页，每页100条数据，并且按照时间倒序排序和存储，最新的排在最前面。 本接口能查询最近7天的数据。</p>
+<h4 id='32b9b8d005-4'>Rate Limit</h4>
+<p>5 requests per second</p>
+<h4 id='ddeb691a06-4'>HTTP Request</h4>
+<p><code>GET /api/v1/cfd/account/transactionList</code></p>
+<h4 id='e97b0d366b-4'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pageSize</td>
+<td>int</td>
+<td>否</td>
+<td>页大小，默认为20</td>
+</tr>
+<tr>
+<td>pageNumber</td>
+<td>int</td>
+<td>否</td>
+<td>当前页，默认为0</td>
+</tr>
+<tr>
+<td>transactionType</td>
+<td>int</td>
+<td>否</td>
+<td>类型，默认为0</td>
+</tr>
+<tr>
+<td>beginTime</td>
+<td>long</td>
+<td>否</td>
+<td>开始时间</td>
+</tr>
+<tr>
+<td>endTime</td>
+<td>long</td>
+<td>否</td>
+<td>结束时间</td>
+</tr>
+</tbody></table>
+<h4 id='577eaea8c6-4'>Response Parameters</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"coinCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0E-8</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createTime"</span><span class="p">:</span><span class="mi">1846465984469</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>int</td>
+<td>接口返回状态，0为成功</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>接口返回描述</td>
+</tr>
+<tr>
+<td>coinCode</td>
+<td>string</td>
+<td>币种code</td>
+</tr>
+<tr>
+<td>transactionType</td>
+<td>int</td>
+<td>类型</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>double</td>
+<td>金额</td>
+</tr>
+<tr>
+<td>createTime</td>
+<td>long</td>
+<td>创建时间</td>
+</tr>
+</tbody></table>
+<h2 id='ad9e6284f0'>订单</h2><h3 id='0c922f87c9'>下单</h3>
+<p>API交易提供限价单下单模式，只有当您的账户有足够的资金才能下单。一旦下单，您的账户资金将在订单生命周期内被冻结，被冻结的资金以及数量取决于订单指定的类型和参数。目前API下单只支持以USDT为计价单位</p>
+<h4 id='32b9b8d005-5'>Rate Limit</h4>
+<p>5 requests per second</p>
+<h4 id='ddeb691a06-5'>HTTP Request</h4>
+<p><code>POST /api/v1/cfd/order/create</code></p>
+<h4 id='e97b0d366b-5'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>price</td>
+<td>double</td>
+<td>Yes</td>
+<td>价格</td>
+</tr>
+<tr>
+<td>total</td>
+<td>double</td>
+<td>Yes</td>
+<td>数量</td>
+</tr>
+<tr>
+<td>operationType</td>
+<td>int</td>
+<td>Yes</td>
+<td>操作类型</td>
+</tr>
+<tr>
+<td>source</td>
+<td>int</td>
+<td>Yes</td>
+<td>订单来源</td>
+</tr>
+<tr>
+<td>orderSide</td>
+<td>int</td>
+<td>Yes</td>
+<td>订单方向</td>
+</tr>
+<tr>
+<td>productCode</td>
+<td>string</td>
+<td>Yes</td>
+<td>产品code</td>
+</tr>
+<tr>
+<td>orderType</td>
+<td>int</td>
+<td>Yes</td>
+<td>订单类型</td>
+</tr>
+<tr>
+<td>marginRatio</td>
+<td>double</td>
+<td>Yes</td>
+<td>保证金比例</td>
+</tr>
+</tbody></table>
+<h4 id='577eaea8c6-5'>Response Parameters</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2613492510000000001</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.00000000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"operationType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderSide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"averagePrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"filled"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"marginRatio"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"frozenMargin"</span><span class="p">:</span><span class="w"> </span><span class="mf">23.25000000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1568095542365</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>int</td>
+<td>接口返回状态，0为成功</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>接口返回描述</td>
+</tr>
+<tr>
+<td>id</td>
+<td>long</td>
+<td>订单ID</td>
+</tr>
+<tr>
+<td>price</td>
+<td>double</td>
+<td>价格</td>
+</tr>
+<tr>
+<td>total</td>
+<td>double</td>
+<td>数量</td>
+</tr>
+<tr>
+<td>operationType</td>
+<td>int</td>
+<td>操作类型</td>
+</tr>
+<tr>
+<td>orderSide</td>
+<td>int</td>
+<td>订单方向</td>
+</tr>
+<tr>
+<td>productCode</td>
+<td>string</td>
+<td>产品code</td>
+</tr>
+<tr>
+<td>orderType</td>
+<td>int</td>
+<td>订单类型</td>
+</tr>
+<tr>
+<td>averagePrice</td>
+<td>double</td>
+<td>成交均价</td>
+</tr>
+<tr>
+<td>fee</td>
+<td>double</td>
+<td>手续费</td>
+</tr>
+<tr>
+<td>marginRatio</td>
+<td>double</td>
+<td>保证金比例</td>
+</tr>
+<tr>
+<td>frozenMargin</td>
+<td>double</td>
+<td>冻结保证金</td>
+</tr>
+<tr>
+<td>createTime</td>
+<td>long</td>
+<td>下单时间</td>
+</tr>
+</tbody></table>
+<h3 id='76089293dd'>批量下单</h3>
+<p>批量进行下单请求，每个合约可批量下10个单。</p>
+<h3 id='8ca58e3150'>撤单</h3>
+<p>撤销之前下的未完成订单。</p>
+<h4 id='32b9b8d005-6'>Rate Limit</h4>
+<p>5 requests per second</p>
+<h4 id='ddeb691a06-6'>HTTP Request</h4>
+<p><code>POST /api/v1/cfd/order/cancel</code></p>
+<h4 id='e97b0d366b-6'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderId</td>
+<td>long</td>
+<td>Yes</td>
+<td>订单编号</td>
+</tr>
+</tbody></table>
+<h4 id='577eaea8c6-6'>Response Parameters</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>int</td>
+<td>接口返回状态，0为成功</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>接口返回描述</td>
+</tr>
+</tbody></table>
+<h3 id='ef5aaabaf8'>批量撤单</h3>
+<p>撤销之前下的未完成订单，每个币对可批量撤10个单。</p>
+<h3 id='6b5072a2f9'>获取所有订单列表</h3>
+<p>列出您当前所有的订单信息。本接口能查询最近7天20000条数据。这个请求支持分页，并且按委托时间倒序排序和存储，最新的排在最前面。</p>
+<h3 id='9feac9a097'>获取订单信息</h3>
+<p>通过订单id获取单个订单信息。已撤销的未成交单只保留2个小时。</p>
+<h2 id='7669de4e81'>交易</h2><h3 id='31e022f000'>获取成交明细</h3>
+<p>获取最近的成交明细列表，本接口能查询最近7天的数据。</p>
+<h4 id='32b9b8d005-7'>Rate Limit</h4>
+<p>5 requests per second</p>
+<h4 id='ddeb691a06-7'>HTTP Request</h4>
+<p><code>GET /api/v1/cfd/order/closePositionList</code></p>
+<h4 id='e97b0d366b-7'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>productCode</td>
+<td>string</td>
+<td>否</td>
+<td>产品编号，如ETH/USDT</td>
+</tr>
+</tbody></table>
+<h4 id='577eaea8c6-7'>Response Parameters</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"productCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT_1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderSide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"lastAveragePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">10059.43451275</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantityChange"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.00000000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"averagePrice"</span><span class="p">:</span><span class="mf">1.1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"winLossRate"</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"dealPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.18500000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"winLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">-22.43451275</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1568966027808</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>int</td>
+<td>接口返回状态，0为成功</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>接口返回描述</td>
+</tr>
+<tr>
+<td>productCode</td>
+<td>string</td>
+<td>产品编号</td>
+</tr>
+<tr>
+<td>orderSide</td>
+<td>int</td>
+<td>订单方向详情</td>
+</tr>
+<tr>
+<td>averagePrice</td>
+<td>double</td>
+<td>成交均价</td>
+</tr>
+<tr>
+<td>lastAveragePrice</td>
+<td>double</td>
+<td>持仓均价</td>
+</tr>
+<tr>
+<td>quantityChange</td>
+<td>double</td>
+<td>平仓数量</td>
+</tr>
+<tr>
+<td>dealPrice</td>
+<td>double</td>
+<td>平仓价</td>
+</tr>
+<tr>
+<td>winLoss</td>
+<td>double</td>
+<td>盈亏</td>
+</tr>
+<tr>
+<td>winLossRate</td>
+<td>double</td>
+<td>盈亏率</td>
+</tr>
+<tr>
+<td>createTime</td>
+<td>long</td>
+<td>平仓时间</td>
+</tr>
+</tbody></table>
+<h3 id='071be79be8'>获取委托单列表</h3>
+<p>获取委托单列表: 列出您当前所有的订单信息。</p>
+<h4 id='32b9b8d005-8'>Rate Limit</h4>
+<p>5 requests per second</p>
+<h4 id='ddeb691a06-8'>HTTP Request</h4>
+<p><code>GET /api/v1/cfd/order/currentOrderList</code></p>
+<h4 id='e97b0d366b-8'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>productCode</td>
+<td>string</td>
+<td>否</td>
+<td>产品编号，如ETH/USDT</td>
+</tr>
+</tbody></table>
+<h4 id='577eaea8c6-8'>Response Parameters</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"productCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH/USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderSide"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"averagePrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"frozenMargin"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"filled"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"marginRatio"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1568611851508</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"operationType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"total"</span><span class="p">:</span><span class="mi">11</span><span class="err">，</span><span class="w">
+            </span><span class="s2">"orderStatus"</span><span class="p">:</span><span class="mi">10</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>int</td>
+<td>接口返回状态，0为成功</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>接口返回描述</td>
+</tr>
+<tr>
+<td>id</td>
+<td>long</td>
+<td>订单编号</td>
+</tr>
+<tr>
+<td>productCode</td>
+<td>string</td>
+<td>产品编号</td>
+</tr>
+<tr>
+<td>operationType</td>
+<td>int</td>
+<td>操作类型</td>
+</tr>
+<tr>
+<td>orderSide</td>
+<td>int</td>
+<td>订单方向详情</td>
+</tr>
+<tr>
+<td>total</td>
+<td>double</td>
+<td>委托数量</td>
+</tr>
+<tr>
+<td>price</td>
+<td>double</td>
+<td>委托价格</td>
+</tr>
+<tr>
+<td>averagePrice</td>
+<td>double</td>
+<td>成交均价</td>
+</tr>
+<tr>
+<td>frozenMargin</td>
+<td>double</td>
+<td>冻结保证金</td>
+</tr>
+<tr>
+<td>filled</td>
+<td>double</td>
+<td>成交数量</td>
+</tr>
+<tr>
+<td>marginRatio</td>
+<td>double</td>
+<td>保证金比例</td>
+</tr>
+<tr>
+<td>fee</td>
+<td>double</td>
+<td>手续费</td>
+</tr>
+<tr>
+<td>createTime</td>
+<td>long</td>
+<td>委托时间</td>
+</tr>
+<tr>
+<td>orderStatus</td>
+<td>int</td>
+<td>订单状态详情</td>
+</tr>
+</tbody></table>
+<h3 id='cd0ff6a5d6'>获取历史委托单列表</h3>
+<p>获取历史委托单列表: 列出您历史委托单信息。</p>
+<h4 id='32b9b8d005-9'>Rate Limit</h4>
+<p>5 requests per second</p>
+<h4 id='ddeb691a06-9'>HTTP Request</h4>
+<p><code>GET /api/v1/cfd/order/historyOrderList</code></p>
+<h4 id='e97b0d366b-9'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>productCode</td>
+<td>string</td>
+<td>否</td>
+<td>产品编号，如ETH/USDT</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>int</td>
+<td>否</td>
+<td>页大小，默认为20</td>
+</tr>
+<tr>
+<td>pageNumber</td>
+<td>int</td>
+<td>否</td>
+<td>当前页，默认为0</td>
+</tr>
+<tr>
+<td>beginTime</td>
+<td>long</td>
+<td>否</td>
+<td>开始时间 默认查全部，不为空时，后端自动向前推24小时</td>
+</tr>
+<tr>
+<td>endTime</td>
+<td>long</td>
+<td>否</td>
+<td>结束时间 默认查全部，不为空时，后端自动向前推24小时</td>
+</tr>
+</tbody></table>
+<h4 id='577eaea8c6-9'>Response Parameters</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"productCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc_usdt_1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderSide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10006.000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"averagePrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"filled"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"marginRatio"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1568779561000</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>int</td>
+<td>接口返回状态，0为成功</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>接口返回描述</td>
+</tr>
+<tr>
+<td>orderId</td>
+<td>long</td>
+<td>订单编号</td>
+</tr>
+<tr>
+<td>productCode</td>
+<td>string</td>
+<td>产品编号</td>
+</tr>
+<tr>
+<td>orderSide</td>
+<td>int</td>
+<td>订单方向详情</td>
+</tr>
+<tr>
+<td>price</td>
+<td>double</td>
+<td>委托价格</td>
+</tr>
+<tr>
+<td>averagePrice</td>
+<td>double</td>
+<td>成交均价</td>
+</tr>
+<tr>
+<td>frozenMargin</td>
+<td>double</td>
+<td>冻结保证金</td>
+</tr>
+<tr>
+<td>filled</td>
+<td>double</td>
+<td>成交数量</td>
+</tr>
+<tr>
+<td>marginRatio</td>
+<td>double</td>
+<td>保证金比例</td>
+</tr>
+<tr>
+<td>fee</td>
+<td>double</td>
+<td>手续费</td>
+</tr>
+<tr>
+<td>createTime</td>
+<td>long</td>
+<td>委托时间</td>
+</tr>
+</tbody></table>
+<h3 id='9ebc0ab78d'>获取历史平仓列表</h3>
+<p>获取历史平仓列表: 列出您历史平仓信息。</p>
+<h4 id='32b9b8d005-10'>Rate Limit</h4>
+<p>5 requests per second</p>
+<h4 id='ddeb691a06-10'>HTTP Request</h4>
+<p><code>GET /api/v1/cfd/order/historyPositionList</code></p>
+<h4 id='e97b0d366b-10'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>productCode</td>
+<td>string</td>
+<td>否</td>
+<td>产品编号，如ETH/USDT</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>int</td>
+<td>否</td>
+<td>页大小，默认为20</td>
+</tr>
+<tr>
+<td>pageNumber</td>
+<td>int</td>
+<td>否</td>
+<td>当前页，默认为0</td>
+</tr>
+<tr>
+<td>orderSide</td>
+<td>int</td>
+<td>否</td>
+<td>买卖方向</td>
+</tr>
+<tr>
+<td>beginTime</td>
+<td>long</td>
+<td>否</td>
+<td>开始时间 默认查全部，不为空时，后端自动向前推24小时</td>
+</tr>
+<tr>
+<td>endTime</td>
+<td>long</td>
+<td>否</td>
+<td>结束时间 默认查全部，不为空时，后端自动向前推24小时</td>
+</tr>
+</tbody></table>
+<h4 id='577eaea8c6-10'>Response Parameters</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"productCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc_usdt_1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderSide"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"marginAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">805.29060361</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"averagePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">10066.13254486</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.00000000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.49500000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"dealPrice"</span><span class="p">:</span><span class="mf">12.4</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"winLoss"</span><span class="p">:</span><span class="w"> </span><span class="mf">-32.86745515</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createTime"</span><span class="p">:</span><span class="mi">124946498634</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>int</td>
+<td>接口返回状态，0为成功</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>接口返回描述</td>
+</tr>
+<tr>
+<td>productCode</td>
+<td>string</td>
+<td>产品编号</td>
+</tr>
+<tr>
+<td>orderSide</td>
+<td>int</td>
+<td>订单方向详情</td>
+</tr>
+<tr>
+<td>marginAmount</td>
+<td>double</td>
+<td>保证金</td>
+</tr>
+<tr>
+<td>averagePrice</td>
+<td>double</td>
+<td>成交均价</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>double</td>
+<td>平仓数量</td>
+</tr>
+<tr>
+<td>dealPrice</td>
+<td>double</td>
+<td>平仓价</td>
+</tr>
+<tr>
+<td>winLoss</td>
+<td>double</td>
+<td>盈亏</td>
+</tr>
+<tr>
+<td>createTime</td>
+<td>long</td>
+<td>平仓时间</td>
+</tr>
+</tbody></table>
+<h3 id='665addac18'>获取历史成交列表</h3>
+<p>获取历史成交列表: 列出您历史成交信息。</p>
+<h4 id='32b9b8d005-11'>Rate Limit</h4>
+<p>5 requests per second</p>
+<h4 id='ddeb691a06-11'>HTTP Request</h4>
+<p><code>GET /api/v1/cfd/trade/list</code></p>
+<h4 id='e97b0d366b-11'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>productCode</td>
+<td>string</td>
+<td>Yes</td>
+<td>产品编号，如ETH/USDT</td>
+</tr>
+<tr>
+<td>size</td>
+<td>int</td>
+<td>否</td>
+<td>列表长度，默认为20</td>
+</tr>
+</tbody></table>
+<h4 id='577eaea8c6-11'>Response Parameters</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"productCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderSide"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1570689717187</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10033.000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"qty"</span><span class="p">:</span><span class="mi">12</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>int</td>
+<td>接口返回状态，0为成功</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>接口返回描述</td>
+</tr>
+<tr>
+<td>productCode</td>
+<td>string</td>
+<td>产品编号</td>
+</tr>
+<tr>
+<td>orderSide</td>
+<td>int</td>
+<td>订单方向详情</td>
+</tr>
+<tr>
+<td>price</td>
+<td>double</td>
+<td>成交较</td>
+</tr>
+<tr>
+<td>qty</td>
+<td>double</td>
+<td>成交数量</td>
+</tr>
+<tr>
+<td>time</td>
+<td>long</td>
+<td>成交时间</td>
+</tr>
+</tbody></table>
+<h3 id='07b45d8691'>链类型列表</h3><h4 id='32b9b8d005-12'>Rate Limit</h4>
+<p>5 requests per second</p>
+<h4 id='ddeb691a06-12'>HTTP Request</h4>
+<p><code>GET /api/v1/cfd/wallet/chainTypeList</code></p>
+<h4 id='e97b0d366b-12'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>productCode</td>
+<td>String</td>
+<td>Yes</td>
+<td>产品code</td>
+</tr>
+<tr>
+<td>size</td>
+<td>int</td>
+<td>Yes</td>
+<td>深度的数量</td>
+</tr>
+</tbody></table>
+<h4 id='577eaea8c6-12'>Response Parameters</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"chinType"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"coinCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"feeRate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"chainTypeRemark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OMNI"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>int</td>
+<td>接口返回状态，0为成功</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>接口返回描述</td>
+</tr>
+<tr>
+<td>id</td>
+<td>long</td>
+<td>产品编号</td>
+</tr>
+<tr>
+<td>productCode</td>
+<td>String</td>
+<td>产品code</td>
+</tr>
+<tr>
+<td>price</td>
+<td>double</td>
+<td>价格</td>
+</tr>
+<tr>
+<td>qty</td>
+<td>double</td>
+<td>数量</td>
+</tr>
+</tbody></table>
+<h3 id='9ac80bc554'>获取深度数据</h3><h4 id='32b9b8d005-13'>Rate Limit</h4>
+<p>5 requests per second</p>
+<h4 id='ddeb691a06-13'>HTTP Request</h4>
+<p><code>GET /api/v1/cfd/depth/get</code></p>
+<h4 id='e97b0d366b-13'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>productCode</td>
+<td>String</td>
+<td>Yes</td>
+<td>产品code</td>
+</tr>
+<tr>
+<td>size</td>
+<td>int</td>
+<td>Yes</td>
+<td>深度的数量</td>
+</tr>
+</tbody></table>
+<h4 id='577eaea8c6-13'>Response Parameters</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"productCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sell"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10048.000</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"qty"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.00000000</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+       </span><span class="s2">"buy"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10048.000</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"qty"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.00000000</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>int</td>
+<td>接口返回状态，0为成功</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>接口返回描述</td>
+</tr>
+<tr>
+<td>id</td>
+<td>long</td>
+<td>产品编号</td>
+</tr>
+<tr>
+<td>productCode</td>
+<td>String</td>
+<td>产品code</td>
+</tr>
+<tr>
+<td>price</td>
+<td>double</td>
+<td>价格</td>
+</tr>
+<tr>
+<td>qty</td>
+<td>double</td>
+<td>数量</td>
+</tr>
+</tbody></table>
+<h2 id='7cd7cf771f'>Market Info</h2><h3 id='09aac6e14b'>获取行情数据</h3><h4 id='32b9b8d005-14'>Rate Limit</h4>
+<p>5 requests per second</p>
+<h4 id='ddeb691a06-14'>HTTP Request</h4>
+<p><code>GET /api/v1/cfd/kline/get</code></p>
+<h4 id='e97b0d366b-14'>Request Parameters</h4>
+<p>无</p>
+<h4 id='577eaea8c6-14'>Response Parameters</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"productCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"periodType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1T"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1568958840000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"open"</span><span class="p">:</span><span class="w"> </span><span class="mf">10097.000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"high"</span><span class="p">:</span><span class="w"> </span><span class="mf">10099.000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"low"</span><span class="p">:</span><span class="w"> </span><span class="mf">10000.000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"close"</span><span class="p">:</span><span class="w"> </span><span class="mf">10039.000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">4831.00000000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">48544204.00000000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"lastClose"</span><span class="p">:</span><span class="w"> </span><span class="mf">10033.000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"changeAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"changeRatio"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0006</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"basePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">10169.339</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>int</td>
+<td>接口返回状态，0为成功</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>接口返回描述</td>
+</tr>
+<tr>
+<td>productCode</td>
+<td>string</td>
+<td>产品code</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td>时间</td>
+</tr>
+<tr>
+<td>open</td>
+<td>double</td>
+<td>开盘价</td>
+</tr>
+<tr>
+<td>high</td>
+<td>double</td>
+<td>最高价</td>
+</tr>
+<tr>
+<td>low</td>
+<td>double</td>
+<td>最低价</td>
+</tr>
+<tr>
+<td>close</td>
+<td>double</td>
+<td>关闭价</td>
+</tr>
+<tr>
+<td>volume</td>
+<td>double</td>
+<td>成交数量</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>double</td>
+<td>成交金额</td>
+</tr>
+<tr>
+<td>change</td>
+<td>double</td>
+<td>与上一条的变更</td>
+</tr>
+<tr>
+<td>lastClose</td>
+<td>double</td>
+<td>最新成交价格</td>
+</tr>
+<tr>
+<td>basePrice</td>
+<td>double</td>
+<td>外部价格</td>
+</tr>
+<tr>
+<td>positionSum</td>
+<td>double</td>
+<td>持仓</td>
+</tr>
+</tbody></table>
+<h3 id='81f530eaa3'>获取K线数据</h3><h4 id='32b9b8d005-15'>Rate Limit</h4>
+<p>5 requests per second</p>
+<h4 id='ddeb691a06-15'>HTTP Request</h4>
+<p><code>GET /api//v1/cfd/market/get</code></p>
+<h4 id='e97b0d366b-15'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>productCode</td>
+<td>String</td>
+<td>Yes</td>
+<td>产品code</td>
+</tr>
+<tr>
+<td>size</td>
+<td>int</td>
+<td>否</td>
+<td>深度的数量</td>
+</tr>
+<tr>
+<td>periodType</td>
+<td>String</td>
+<td>Yes</td>
+<td>k线周期类型</td>
+</tr>
+<tr>
+<td>beginTime</td>
+<td>long</td>
+<td>否</td>
+<td>开始时间</td>
+</tr>
+</tbody></table>
+<h4 id='577eaea8c6-15'>Response Parameters</h4>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"productCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT_1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"open"</span><span class="p">:</span><span class="w"> </span><span class="mf">10012.000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"high"</span><span class="p">:</span><span class="w"> </span><span class="mf">10099.000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"low"</span><span class="p">:</span><span class="w"> </span><span class="mf">10000.000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"close"</span><span class="p">:</span><span class="w"> </span><span class="mf">10012.000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">778727.00000000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">7824750996.00000000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"lastPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">10012.000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1568960052830</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"basePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">10183.668</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"positionSum"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>int</td>
+<td>接口返回状态，0为成功</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>接口返回描述</td>
+</tr>
+<tr>
+<td>productCode</td>
+<td>string</td>
+<td>产品code</td>
+</tr>
+<tr>
+<td>periodType</td>
+<td>string</td>
+<td>周期类型</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td>时间</td>
+</tr>
+<tr>
+<td>open</td>
+<td>double</td>
+<td>开盘价</td>
+</tr>
+<tr>
+<td>high</td>
+<td>double</td>
+<td>最高价</td>
+</tr>
+<tr>
+<td>low</td>
+<td>double</td>
+<td>最低价</td>
+</tr>
+<tr>
+<td>close</td>
+<td>double</td>
+<td>关闭价</td>
+</tr>
+<tr>
+<td>volume</td>
+<td>double</td>
+<td>成交数量</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>double</td>
+<td>成交金额</td>
+</tr>
+<tr>
+<td>lastClose</td>
+<td>double</td>
+<td>最新成交价格</td>
+</tr>
+<tr>
+<td>changeAmount</td>
+<td>double</td>
+<td>变更数量</td>
+</tr>
+<tr>
+<td>changeRatio</td>
+<td>double</td>
+<td>变量率</td>
+</tr>
+<tr>
+<td>basePrice</td>
+<td>double</td>
+<td>外部价格</td>
+</tr>
+</tbody></table>
+<h1 id='478392e706'>REST API error code</h1><h2 id='41f8915de8'>Coin to Coin API error code</h2>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>10000</td>
+<td>Request processing succeeded</td>
+</tr>
+<tr>
+<td>10001</td>
+<td>System exception/busy server</td>
+</tr>
+<tr>
+<td>10002</td>
+<td>Parameter cannot be empty.</td>
+</tr>
+<tr>
+<td>10003</td>
+<td>Illegal parameter</td>
+</tr>
+<tr>
+<td>10004</td>
+<td>Unsupported pairs</td>
+</tr>
+<tr>
+<td>10005</td>
+<td>The transaction is not supported.</td>
+</tr>
+<tr>
+<td>10006</td>
+<td>Order status is wrong.</td>
+</tr>
+<tr>
+<td>10007</td>
+<td>No account information is available.</td>
+</tr>
+<tr>
+<td>10008</td>
+<td>Key does not exist.</td>
+</tr>
+<tr>
+<td>10009</td>
+<td>Timestamp is empty.</td>
+</tr>
+<tr>
+<td>10010</td>
+<td>Timestamp has expired.</td>
+</tr>
+<tr>
+<td>10011</td>
+<td>Flag is empty.</td>
+</tr>
+<tr>
+<td>10012</td>
+<td>Trading subject to temporary restriction</td>
+</tr>
+<tr>
+<td>10013</td>
+<td>Signature mismatched</td>
+</tr>
+<tr>
+<td>10014</td>
+<td>Order placement failure</td>
+</tr>
+<tr>
+<td>10015</td>
+<td>Cancellation failure</td>
+</tr>
+<tr>
+<td>10016</td>
+<td>The request interface is too frequent</td>
+</tr>
+<tr>
+<td>10017</td>
+<td>The transaction pairs are not supported by the Exchange.</td>
+</tr>
+<tr>
+<td>10018</td>
+<td>Currency price is empty.</td>
+</tr>
+<tr>
+<td>10019</td>
+<td>It is allowed to cancel up to five orders at a time.</td>
+</tr>
+<tr>
+<td>10020</td>
+<td>Order number is empty.</td>
+</tr>
+<tr>
+<td>10021</td>
+<td>It can only query data before the latest 24 hours.</td>
+</tr>
+<tr>
+<td>10022</td>
+<td>Interface suspension service</td>
+</tr>
+<tr>
+<td>10023</td>
+<td>The secret key is empty.</td>
+</tr>
+<tr>
+<td>10024</td>
+<td>No transaction rights are available.</td>
+</tr>
+<tr>
+<td>10025</td>
+<td>No query authority is available.</td>
+</tr>
+<tr>
+<td>10026</td>
+<td>Request has expired.</td>
+</tr>
+<tr>
+<td>10027</td>
+<td>Illegal price input</td>
+</tr>
+<tr>
+<td>10028</td>
+<td>Illegal quantity input</td>
+</tr>
+<tr>
+<td>10029</td>
+<td>Illegal order input</td>
+</tr>
+<tr>
+<td>10030</td>
+<td>Unknown currency pair</td>
+</tr>
+<tr>
+<td>10031</td>
+<td>Decimal error in order price</td>
+</tr>
+<tr>
+<td>10032</td>
+<td>Decimal error in order quantity</td>
+</tr>
+<tr>
+<td>10033</td>
+<td>Maximum transaction amount</td>
+</tr>
+<tr>
+<td>10034</td>
+<td>Manimum transaction amount</td>
+</tr>
+<tr>
+<td>10035</td>
+<td>Maintenance of the created order</td>
+</tr>
+<tr>
+<td>10036</td>
+<td>Price input is empty.</td>
+</tr>
+<tr>
+<td>10037</td>
+<td>Amount input is empty.</td>
+</tr>
+<tr>
+<td>10038</td>
+<td>No transaction is allowed without being put away.</td>
+</tr>
+<tr>
+<td>10039</td>
+<td>No sales is allowed during the subscription period.</td>
+</tr>
+<tr>
+<td>100100</td>
+<td>The order is incorrect.</td>
+</tr>
+<tr>
+<td>100200</td>
+<td>The order type is incorrect.</td>
+</tr>
+<tr>
+<td>100300</td>
+<td>The matching status is incorrect.</td>
+</tr>
+<tr>
+<td>100400</td>
+<td>Price cannot be empty.</td>
+</tr>
+<tr>
+<td>100500</td>
+<td>The price is too low.</td>
+</tr>
+<tr>
+<td>100550</td>
+<td>The price is too high.</td>
+</tr>
+<tr>
+<td>100600</td>
+<td>The amount is too low.</td>
+</tr>
+<tr>
+<td>100650</td>
+<td>The amount is too high.</td>
+</tr>
+<tr>
+<td>100700</td>
+<td>No users are found.</td>
+</tr>
+<tr>
+<td>100800</td>
+<td>No accounts are found.</td>
+</tr>
+<tr>
+<td>100900</td>
+<td>The request is invalid.</td>
+</tr>
+<tr>
+<td>101000</td>
+<td>The available amount is not enough.</td>
+</tr>
+<tr>
+<td>101100</td>
+<td>The order cannot be cancelled.</td>
+</tr>
+<tr>
+<td>101200</td>
+<td>It is failed to cancel the order.</td>
+</tr>
+<tr>
+<td>101300</td>
+<td>Pair name cannot be empty.</td>
+</tr>
+<tr>
+<td>101400</td>
+<td>The object to be created already exists.</td>
+</tr>
+<tr>
+<td>101500</td>
+<td>The object does not exist.</td>
+</tr>
+<tr>
+<td>101600</td>
+<td>The amount frozen is not enough.</td>
+</tr>
+<tr>
+<td>101700</td>
+<td>There is no positive action.</td>
+</tr>
+<tr>
+<td>101800</td>
+<td>No coins are found.</td>
+</tr>
+<tr>
+<td>101900</td>
+<td>The string length is too large.</td>
+</tr>
+<tr>
+<td>102000</td>
+<td>The user is frozen.</td>
+</tr>
+<tr>
+<td>102200</td>
+<td>The system is busy. Please try again later.</td>
+</tr>
+<tr>
+<td>102300</td>
+<td>Inverse action already exists.</td>
+</tr>
+<tr>
+<td>102400</td>
+<td>GUID cannot be empty.</td>
+</tr>
+<tr>
+<td>102500</td>
+<td>Users are prohibited from placing orders.</td>
+</tr>
+<tr>
+<td>102600</td>
+<td>The order property is invalid or the order type is market.</td>
+</tr>
+<tr>
+<td>102650</td>
+<td>The order mode is invalid.</td>
+</tr>
+<tr>
+<td>102700</td>
+<td>There are no market prices, please use the NORMAL model.</td>
+</tr>
+<tr>
+<td>102800</td>
+<td>Trigger price must be larger than 0.</td>
+</tr>
+<tr>
+<td>102900</td>
+<td>Price gap must be larger than 0.</td>
+</tr>
+<tr>
+<td>103000</td>
+<td>Trailing stop loss only supports market orders.</td>
+</tr>
+<tr>
+<td>103100</td>
+<td>The trigger price is too low.</td>
+</tr>
+<tr>
+<td>103100</td>
+<td>The trigger price is too high.</td>
+</tr>
+<tr>
+<td>103100</td>
+<td>One cannot transfer funds to himself/ herself.</td>
+</tr>
+</tbody></table>
+<h1 id='eb9587312c'>REST API FAQs</h1>
+<ul>
+<li>API call limits</li>
+</ul>
+
+<p>Answer: An IP can send up to 10 https requests per second. If the number of requests exceeded 10, the IP will be blocked for one hour and automatically unblocked after an hour. Some interfaces also have API call frequency restrictions for the same key. Specific restrictions can be found in the relevant interfaces. If the API call frequency is lowered later. the access will be restored.</p>
+
+<ul>
+<li>The server returns error code 10000.</li>
+</ul>
+
+<p>Answer: Please check whether the parameters required by the interface are submitted to the server correctly, and then check whether the content type of the request header information is misconfigured as <code>&#39;application/x-www-form-urlencoded&#39;</code>.</p>
+<h1 id='7166afcc5a'>WebSocket API FAQs</h1><h2 id='4116190aff'>How to check the connection status?</h2>
+<p>IDAX solves this problem by heartbeat mechanism. The client-side can send a heartbeat data:{&quot;event&quot;:&quot;ping&quot;}, and the server will respond to the client-side:{&quot;event&quot;:&quot;pong&quot;} This shows that the connection is ok. If the client-side does not receive the heartbeat data from the server, the client-side needs to re-establish the connection.</p>
+<h1 id='731bbbbe4f'>Change Log</h1><h2 id='ca0f53a5da'>2019-10-25</h2>
+<ul>
+<li>New feature: search function, support English and Chinese</li>
+<li>New Endpoint for Perpetual API</li>
+</ul>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="java">Java</a>
+                <a href="#" data-language-name="go">Go</a>
+                <a href="#" data-language-name="c++">C++</a>
+                <a href="#" data-language-name="python">Python</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
